@@ -6,6 +6,7 @@
       "${modulesPath}/profiles/headless.nix"
       ./hardware.nix
       disko.nixosModules.default
+      ./applications
     ];
 
   boot.loader.grub.devices = [ "/dev/vda" ];

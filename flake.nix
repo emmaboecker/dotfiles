@@ -13,6 +13,10 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    marie = {
+      url = "github:NyCodeGHG/dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, disko, nixos-generators, deploy-rs, ... }@attrs:
@@ -37,9 +41,12 @@
       deploy.nodes.netcup = {
         hostname = "45.129.180.33";
         sshUser = "emma";
+        
         # required for sudo pw to work
         magicRollback = false;
-        # autoRollback = false;
+
+        autoRollback = true;
+
         profiles.system = {
           user = "root";
           path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.netcup;
