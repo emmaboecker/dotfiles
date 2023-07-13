@@ -31,17 +31,17 @@
       nixosConfigurations.netcup = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
-        modules = [
-          (import ./server.nix)
-        ];
+        modules = [ ./server.nix ];
       };
+      deploy.sshOpts = [ "-t" ];
       deploy.nodes.netcup = {
         hostname = "45.129.180.33";
         sshUser = "emma";
+        # required for sudo pw to work
         magicRollback = false;
-        autoRollback = false;
+        # autoRollback = false;
         profiles.system = {
-          user = "emma";
+          user = "root";
           path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.netcup;
         };
       };

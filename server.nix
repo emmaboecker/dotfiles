@@ -15,7 +15,7 @@
     openFirewall = true;
     settings = {
       PasswordAuthentication = false;
-      #PermitRootLogin = "no";
+      PermitRootLogin = "no";
       KbdInteractiveAuthentication = false;
     };
   };
@@ -24,11 +24,10 @@
     22 80 443
   ];
 
+  security.sudo.wheelNeedsPassword = false;
+
   time.timeZone = "Europe/Berlin";
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh+tAKie4OOkzxIwprEcQHiaL4ifkJKcSeN3bytV1rZ stckoverflw@gmail.com"
-  ];
   users.users.emma = {
     isNormalUser = true;
     extraGroups = [
