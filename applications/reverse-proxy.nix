@@ -1,5 +1,4 @@
-{ marie, ...}:
-{
+{marie, ...}: {
   imports = [
     "${marie}/modules/reverse-proxy.nix"
   ];

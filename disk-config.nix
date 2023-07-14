@@ -1,4 +1,4 @@
-{ disks ? [ "/dev/vda" ], ... }: {
+{disks ? ["/dev/vda"], ...}: {
   disk = {
     main = {
       type = "disk";
@@ -11,7 +11,7 @@
             name = "boot";
             start = "0";
             end = "1M";
-            flags = [ "bios_grub" ];
+            flags = ["bios_grub"];
           }
           {
             name = "ESP";
@@ -38,4 +38,4 @@
       };
     };
   };
-} 
+}

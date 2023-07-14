@@ -1,15 +1,19 @@
-{ modulesPath, lib, disko, nixpkgs, ... }:
 {
-  imports =
-    [
-      "${modulesPath}/profiles/qemu-guest.nix"
-      "${modulesPath}/profiles/headless.nix"
-      ./hardware.nix
-      disko.nixosModules.default
-      ./applications
-    ];
+  modulesPath,
+  lib,
+  disko,
+  nixpkgs,
+  ...
+}: {
+  imports = [
+    "${modulesPath}/profiles/qemu-guest.nix"
+    "${modulesPath}/profiles/headless.nix"
+    ./hardware.nix
+    disko.nixosModules.default
+    ./applications
+  ];
 
-  boot.loader.grub.devices = [ "/dev/vda" ];
+  boot.loader.grub.devices = ["/dev/vda"];
 
   services.openssh = {
     enable = true;
@@ -22,19 +26,23 @@
   };
 
   networking.firewall.allowedTCPPorts = [
-    22 80 443
+    22
+    80
+    443
   ];
 
   security.sudo.wheelNeedsPassword = false;
 
   time.timeZone = "Europe/Berlin";
 
+  nixpkgs.config.allowUnfree = true;
+
   users.users.emma = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
     ];
-  	openssh.authorizedKeys.keys = [
+    openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIh+tAKie4OOkzxIwprEcQHiaL4ifkJKcSeN3bytV1rZ stckoverflw@gmail.com"
     ];
   };

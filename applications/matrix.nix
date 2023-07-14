@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   serverName = "boecker.dev";
   matrixDomain = "matrix.boecker.dev";
   clientConfig."m.homeserver".base_url = "https://${matrixDomain}";
@@ -11,8 +10,7 @@ let
     add_header Access-Control-Allow-Origin *;
     return 200 '${builtins.toJSON data}';
   '';
-in
-{
+in {
   uwumarie.reverse-proxy.services = {
     "${serverName}" = {
       locations."/" = {
@@ -41,7 +39,7 @@ in
         };
       }
     ];
-    ensureDatabases = [ "matrix-synapse" ];
+    ensureDatabases = ["matrix-synapse"];
   };
 
   services.matrix-synapse = {
@@ -62,13 +60,13 @@ in
       listeners = [
         {
           port = 8008;
-          bind_addresses = [ "::1" ];
+          bind_addresses = ["::1"];
           type = "http";
           tls = false;
           x_forwarded = true;
           resources = [
             {
-              names = [ "client" "federation" ];
+              names = ["client" "federation"];
               compress = false;
             }
           ];
@@ -89,7 +87,7 @@ in
     ];
   };
   systemd.services.matrix-synapse = {
-    after = [ "network-online.target" "postgresql.service" ];
-    wants = [ "network-online.target" "postgresql.service" ];
+    after = ["network-online.target" "postgresql.service"];
+    wants = ["network-online.target" "postgresql.service"];
   };
 }
