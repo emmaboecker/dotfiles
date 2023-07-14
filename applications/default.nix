@@ -6,5 +6,6 @@
     ./mariadb.nix
     ./matrix.nix
     ./nextcloud.nix
+    ./discord-bots
   ];
 }
