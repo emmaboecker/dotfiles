@@ -30,11 +30,21 @@
       VALIDATE_CHECKSUMS = "false";
     };
 
+    volumes = [
+      "/var/lib/iws/plugins:/usr/app/plugins"
+    ];
+
     extraOptions = ["--network=host" ];
   };
 
   systemd.services.podman-iws = {
     after = [ "network-online.target" "podman-mongodb.service" ];
     wants = [ "network-online.target" "podman-mongodb.service" ];
+  };
+
+  uwumarie.reverse-proxy.services."iws.boecker.dev" = {
+    locations."/" = {
+      proxyPass = "http://localhost:8080";
+    };
   };
 } 
