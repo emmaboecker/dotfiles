@@ -8,8 +8,14 @@ let
   allKeys = userKeys ++ [systemKey];
 in {
   "nextcloud-admin.age".publicKeys = allKeys;
+
   "iws-token.age".publicKeys = allKeys;
   "mongo-root.age".publicKeys = allKeys;
+
   "ris-tokens.age".publicKeys = allKeys;
+
   "matrix-secret.age".publicKeys = allKeys;
+
+  "authentik-redis-password.age".publicKeys = allKeys;
+  "authentik-secrets.age".publicKeys = allKeys;
 }

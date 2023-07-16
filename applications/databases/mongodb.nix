@@ -1,4 +1,8 @@
-{ config, self, ...}: {
+{
+  config,
+  self,
+  ...
+}: {
   age.secrets.mongo-root.file = "${self}/secrets/mongo-root.age";
 
   virtualisation.oci-containers.containers.mongodb = {

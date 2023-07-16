@@ -6,5 +6,6 @@
     ./matrix.nix
     ./nextcloud.nix
     ./railboard-api.nix
+    ./authentik.nix
   ];
 }

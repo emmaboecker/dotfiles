@@ -1,10 +1,12 @@
-{ config, self, ... }:
 {
+  config,
+  self,
+  ...
+}: {
   age.secrets.iws-token.file = "${self}/secrets/iws-token.age";
 
   virtualisation.oci-containers.containers.iws = {
     image = "ghcr.io/stckoverflw/iws:d7d94b14e7b5bd6dc21e70b30ca48f822006af7d";
-
 
     environmentFiles = [
       config.age.secrets.iws-token.path
@@ -34,12 +36,12 @@
       "/var/lib/iws/plugins:/usr/app/plugins"
     ];
 
-    extraOptions = ["--network=host" ];
+    extraOptions = ["--network=host"];
   };
 
   systemd.services.podman-iws = {
-    after = [ "network-online.target" "podman-mongodb.service" ];
-    wants = [ "network-online.target" "podman-mongodb.service" ];
+    after = ["network-online.target" "podman-mongodb.service"];
+    wants = ["network-online.target" "podman-mongodb.service"];
   };
 
   uwumarie.reverse-proxy.services."iws.boecker.dev" = {
@@ -47,4 +49,4 @@
       proxyPass = "http://localhost:8080";
     };
   };
-} 
+}

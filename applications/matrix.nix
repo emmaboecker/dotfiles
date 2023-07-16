@@ -1,4 +1,9 @@
-{pkgs, self, config, ...}: let
+{
+  pkgs,
+  self,
+  config,
+  ...
+}: let
   serverName = "boecker.dev";
   matrixDomain = "matrix.boecker.dev";
   clientConfig."m.homeserver".base_url = "https://${matrixDomain}";
