@@ -18,4 +18,6 @@ in {
 
   "authentik-redis-password.age".publicKeys = allKeys;
   "authentik-secrets.age".publicKeys = allKeys;
+
+  "grafana-oauth-secret.age".publicKeys = allKeys;
 }
