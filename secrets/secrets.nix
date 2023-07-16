@@ -10,4 +10,5 @@ in {
   "nextcloud-admin.age".publicKeys = allKeys;
   "iws-token.age".publicKeys = allKeys;
   "mongo-root.age".publicKeys = allKeys;
+  "ris-tokens.age".publicKeys = allKeys;
 }

@@ -19,7 +19,7 @@
       LOG_LEVEL = "INFO";
       BOT_OWNERS = "816989010836717599,225301495661199361,828324410015744040";
       OWNER_GUILD = "1040512216895598693";
-      UPDATE_PLUGINS = "true";
+      UPDATE_PLUGINS = "false";
       WEB_SERVER_HOST = "0.0.0.0";
       WEB_SERVER_URL = "https://iws.boecker.dev";
       PLUGIN_REPOSITORIES = "https://storage.googleapis.com/mikbot-plugins/";
