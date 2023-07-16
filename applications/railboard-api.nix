@@ -30,6 +30,10 @@
 
     locations."/" = {
       proxyPass = "http://localhost:8069";
+
+      extraConfig = ''
+          add_header Access-Control-Allow-Origin "*";
+        '';
     };
   };
 }
