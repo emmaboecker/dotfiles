@@ -11,4 +11,5 @@ in {
   "iws-token.age".publicKeys = allKeys;
   "mongo-root.age".publicKeys = allKeys;
   "ris-tokens.age".publicKeys = allKeys;
+  "matrix-secret.age".publicKeys = allKeys;
 }

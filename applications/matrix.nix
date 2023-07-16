@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, self, config, ...}: let
   serverName = "boecker.dev";
   matrixDomain = "matrix.boecker.dev";
   clientConfig."m.homeserver".base_url = "https://${matrixDomain}";
@@ -11,6 +11,12 @@
     return 200 '${builtins.toJSON data}';
   '';
 in {
+  age.secrets.matrix-secret = {
+    file = "${self}/secrets/matrix-secret.age";
+    owner = "matrix-synapse";
+    group = "matrix-synapse";
+  };
+
   uwumarie.reverse-proxy.services = {
     "${serverName}" = {
       locations."/" = {
@@ -84,6 +90,7 @@ in {
               database: matrix-synapse
               user: matrix-synapse
         '')
+      config.age.secrets.matrix-secret.path
     ];
   };
   systemd.services.matrix-synapse = {
