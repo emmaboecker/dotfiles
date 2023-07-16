@@ -59,6 +59,9 @@ in {
       server_name = serverName;
       enable_registration = false;
       public_baseurl = "https://${matrixDomain}/";
+
+      enable_metrics = true;
+
       database = {
         name = "psycopg2";
         args = {
@@ -82,6 +85,19 @@ in {
             }
           ];
         }
+        {
+          port = 8009;
+          bind_addresses = ["127.0.0.1" "::1"];
+          type = "http";
+          tls = false;
+          x_forwarded = true;
+          resources = [
+            {
+              names = ["metrics"];
+              compress = false;
+            }
+          ];
+        }
       ];
     };
     extraConfigFiles = [
@@ -98,8 +114,21 @@ in {
       config.age.secrets.matrix-secret.path
     ];
   };
+
   systemd.services.matrix-synapse = {
     after = ["network-online.target" "postgresql.service"];
     wants = ["network-online.target" "postgresql.service"];
   };
+
+  services.prometheus.scrapeConfigs = [
+    {
+      job_name = "matrix-synapse";
+      metrics_path = "/_synapse/metrics";
+      static_configs = [
+        {
+          targets = [ "localhost:8009" ];
+        }
+      ];
+    }
+  ];
 }
