@@ -47,7 +47,7 @@
       ];
     };
   in {
-    nixosConfigurations.netcup = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.july = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
@@ -56,7 +56,7 @@
       ];
     };
     deploy.sshOpts = ["-t"];
-    deploy.nodes.netcup = {
+    deploy.nodes.july = {
       hostname = "45.129.180.33";
       sshUser = "emma";
 
@@ -67,7 +67,7 @@
 
       profiles.system = {
         user = "root";
-        path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.netcup;
+        path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.july;
       };
     };
     checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;

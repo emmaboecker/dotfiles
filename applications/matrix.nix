@@ -126,7 +126,7 @@ in {
       metrics_path = "/_synapse/metrics";
       static_configs = [
         {
-          targets = [ "localhost:8009" ];
+          targets = ["localhost:8009"];
         }
       ];
     }

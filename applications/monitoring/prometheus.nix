@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.prometheus = {
     enable = true;
     retentionTime = "30d";
@@ -21,7 +20,7 @@
         job_name = "node-exporter";
         static_configs = [
           {
-            targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
+            targets = ["localhost:${toString config.services.prometheus.exporters.node.port}"];
           }
         ];
       }

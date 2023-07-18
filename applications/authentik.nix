@@ -15,7 +15,7 @@
     AUTHENTIK_REDIS__PORT = "6379";
 
     AUTHENTIK_LISTEN__HTTP = "0.0.0.0:9000";
-    AUTHENTIK_FOOTER_LINKS="[{\"name\": \"Emma Website :3\",\"href\":\"https://www.boecker.dev\"}]";
+    AUTHENTIK_FOOTER_LINKS = "[{\"name\": \"Emma Website :3\",\"href\":\"https://www.boecker.dev\"}]";
 
     AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL = "true";
     AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME = "true";
@@ -24,7 +24,7 @@
   };
 in {
   age.secrets.authentik-secrets.file = "${self}/secrets/authentik-secrets.age";
-  
+
   services.postgresql = {
     ensureUsers = [
       {
@@ -46,7 +46,7 @@ in {
       environmentFiles = [
         config.age.secrets.authentik-secrets.path
       ];
-      
+
       environment = mkEnvironemt;
 
       extraOptions = [
@@ -72,13 +72,13 @@ in {
   };
 
   systemd.services.podman-authentik-server = {
-    after = [ "network-online.target" "postgresql.service" ];
-    wants = [ "network-online.target" "postgresql.service" ];
+    after = ["network-online.target" "postgresql.service"];
+    wants = ["network-online.target" "postgresql.service"];
   };
 
   systemd.services.podman-authentik-worker = {
-    after = [ "network-online.target" "postgresql.service" ];
-    wants = [ "network-online.target" "postgresql.service" ];
+    after = ["network-online.target" "postgresql.service"];
+    wants = ["network-online.target" "postgresql.service"];
   };
 
   uwumarie.reverse-proxy.services."sso.boecker.dev" = {

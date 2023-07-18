@@ -8,28 +8,13 @@
   imports = [
     "${modulesPath}/profiles/qemu-guest.nix"
     "${modulesPath}/profiles/headless.nix"
-    ./hardware.nix
     disko.nixosModules.default
+    ./hardware.nix
+    ./networking.nix
     ./applications
   ];
 
   boot.loader.grub.devices = ["/dev/vda"];
-
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-      KbdInteractiveAuthentication = false;
-    };
-  };
-
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-  ];
 
   security.sudo.wheelNeedsPassword = false;
 
