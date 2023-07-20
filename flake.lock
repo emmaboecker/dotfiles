@@ -213,6 +213,23 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
+        "lastModified": 1688466019,
+        "narHash": "sha256-VeM2akYrBYMsb4W/MmBo1zmaMfgbL4cH3Pu8PGyIwJ0=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "8e8d955c22df93dbe24f19ea04f47a74adbdc5ec",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-parts",
+        "type": "indirect"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
         "lastModified": 1688254665,
         "narHash": "sha256-8FHEgBrr7gYNiS/NzCxIO3m4hvtLRW9YY1nYo1ivm3o=",
         "owner": "hercules-ci",
@@ -373,7 +390,7 @@
     },
     "ip-playground": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "nixpkgs": [
           "marie",
           "nixpkgs"
@@ -391,6 +408,27 @@
       "original": {
         "type": "git",
         "url": "ssh://gitlab@git.marie.cologne/marie/ip-playground.git"
+      }
+    },
+    "iws-rs": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1689874841,
+        "narHash": "sha256-yH1S4AILZ+ALVEysd2BCbjFWHkjQsgsPhy1FeHrskJQ=",
+        "owner": "StckOverflw",
+        "repo": "iws-rs",
+        "rev": "51c6b256ae79ffa6adc73a94f9df7ea030e96f23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StckOverflw",
+        "repo": "iws-rs",
+        "type": "github"
       }
     },
     "marie": {
@@ -489,6 +527,24 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1688049487,
+        "narHash": "sha256-100g4iaKC9MalDjUW9iN6Jl/OocTDtXdeAj7pEGIRh4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4bc72cae107788bf3f24f30db2e2f685c9298dc9",
+        "type": "github"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1689282004,
@@ -510,6 +566,7 @@
         "agenix": "agenix",
         "deploy-rs": "deploy-rs",
         "disko": "disko",
+        "iws-rs": "iws-rs",
         "marie": "marie",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2"
