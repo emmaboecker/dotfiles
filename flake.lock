@@ -418,11 +418,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1689874841,
-        "narHash": "sha256-yH1S4AILZ+ALVEysd2BCbjFWHkjQsgsPhy1FeHrskJQ=",
+        "lastModified": 1689947155,
+        "narHash": "sha256-DVzgnzsNRva4HSiU1/tg6Gyw/GGZqHSKvBh2IQZNacU=",
         "owner": "StckOverflw",
         "repo": "iws-rs",
-        "rev": "51c6b256ae79ffa6adc73a94f9df7ea030e96f23",
+        "rev": "8f449ff5d82fbbbca927c432c4e1f3febe4c8599",
         "type": "github"
       },
       "original": {
