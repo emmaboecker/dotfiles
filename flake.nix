@@ -55,7 +55,7 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./server.nix
+        ./july.nix
         agenix.nixosModules.default
       ];
     };
