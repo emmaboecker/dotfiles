@@ -25,6 +25,10 @@
       url = "github:StckOverflw/iws-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    railboard-api = {
+      url = "github:StckOverflw/railboard-api";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

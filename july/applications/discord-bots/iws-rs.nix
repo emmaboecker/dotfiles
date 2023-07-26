@@ -16,9 +16,7 @@
     # };
     serviceConfig = {
       EnvironmentFile = config.age.secrets.iws-rs.path;
-      ExecStart = ''
-        ${iws-rs.packages.${pkgs.system}.default}/bin/iws-rs
-      '';
+      ExecStart = "${iws-rs.packages.${pkgs.system}.default}/bin/iws-rs";
       Restart = "on-failure";
       CapabilityBoundingSet = [ "" ];
       LockPersonality = true;
