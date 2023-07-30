@@ -8,6 +8,5 @@
     ./nextcloud.nix
     ./railboard-api.nix
     ./authentik.nix
-    ./ds100.nix
   ];
 }
