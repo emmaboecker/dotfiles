@@ -29,6 +29,10 @@
       url = "github:StckOverflw/railboard-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    conduit = {
+      url = "gitlab:famedly/conduit/next";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
