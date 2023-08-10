@@ -57,96 +57,85 @@ in {
     };
   };
 
-  # services.postgresql = {
-  #   ensureUsers = [
-  #     {
-  #       name = "matrix-synapse";
-  #       ensurePermissions = {
-  #         "DATABASE \"matrix-synapse\"" = "ALL PRIVILEGES";
-  #       };
-  #     }
-  #   ];
-  #   ensureDatabases = ["matrix-synapse"];
-  # };
+  services.postgresql = {
+    ensureUsers = [
+      {
+        name = "mautrix-whatsapp";
+        ensurePermissions = {
+          "DATABASE \"mautrix-whatsapp\"" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+    ensureDatabases = ["mautrix-whatsapp"];
+  };
+
+  services.mautrix-whatsapp = {
+    enable = true;
+    serviceDependencies = [
+      "conduit.service"
+    ];
+
+    settings = {
+      appservice = {
+        database = {
+          type = "postgres";
+          uri = "postgresql:///mautrix-whatsapp?host=/run/postgresql";
+        };
+        ephemeral_events = false;
+        id = "whatsapp";
+
+        address = "http://localhost:29318";
+        hostname = "0.0.0.0";
+        port = 29318;
+      };
+      homeserver = {
+        address = "https://matrix.boecker.dev:443";
+        domain = "boecker.dev";
+        software = "standard";
+        async_media = false;
+        websocket = false;
+      };
+      bridge = {
+        encryption = {
+          allow = true;
+          default = true;
+          require = true;
+        };
+        history_sync = {
+          request_full_sync = true;
+        };
+        mute_bridging = true;
+        permissions = {
+          "boecker.dev" = "user";
+          "@emma:boecker.dev" = "admin";
+        };
+        private_chat_portal_meta = true;
+        provisioning = {
+          shared_secret = "disable";
+        };
+      };
+      metrics = {
+        enabled = true;
+        listen = "127.0.0.1:8918";
+      };
+    };
+  };
+
+  systemd.services.conduit = {
+    after = ["network-online.target" "postgresql.service"];
+    wants = ["network-online.target" "postgresql.service"];
+  };
 
 
-
-  # services.matrix-synapse = {
-  #   enable = true;
-  #   settings = {
-  #     server_name = serverName;
-  #     enable_registration = false;
-  #     public_baseurl = "https://${matrixDomain}/";
-
-  #     enable_metrics = true;
-
-  #     database = {
-  #       name = "psycopg2";
-  #       args = {
-  #         # Bug in NixOS module this only triggers that the local db is used
-  #         host = "127.0.0.1";
-  #         database = "matrix-synapse";
-  #         user = "matrix-synapse";
-  #       };
-  #     };
-  #     listeners = [
-  #       {
-  #         port = 8008;
-  #         bind_addresses = ["::1"];
-  #         type = "http";
-  #         tls = false;
-  #         x_forwarded = true;
-  #         resources = [
-  #           {
-  #             names = ["client" "federation"];
-  #             compress = false;
-  #           }
-  #         ];
-  #       }
-  #       {
-  #         port = 8009;
-  #         bind_addresses = ["127.0.0.1" "::1"];
-  #         type = "http";
-  #         tls = false;
-  #         x_forwarded = true;
-  #         resources = [
-  #           {
-  #             names = ["metrics"];
-  #             compress = false;
-  #           }
-  #         ];
-  #       }
-  #     ];
-  #   };
-  #   extraConfigFiles = [
-  #     (pkgs.writeText
-  #       "postgres.yaml"
-  #       ''
-  #         database:
-  #           name: psycopg2
-  #           args:
-  #             host: /run/postgresql
-  #             database: matrix-synapse
-  #             user: matrix-synapse
-  #       '')
-  #     config.age.secrets.matrix-secret.path
-  #   ];
-  # };
-
-  # systemd.services.matrix-synapse = {
-  #   after = ["network-online.target" "postgresql.service"];
-  #   wants = ["network-online.target" "postgresql.service"];
-  # };
-
-  # services.prometheus.scrapeConfigs = [
-  #   {
-  #     job_name = "matrix-synapse";
-  #     metrics_path = "/_synapse/metrics";
-  #     static_configs = [
-  #       {
-  #         targets = ["localhost:8009"];
-  #       }
-  #     ];
-  #   }
-  # ];
+  services.prometheus.scrapeConfigs = [
+    {
+      job_name = "mautrix-whatsapp";
+      metrics_path = "/metrics";
+      static_configs = [
+        {
+          targets = ["127.0.0.1:8918"];
+        }
+      ];
+    }
+  ];
 }
