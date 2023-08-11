@@ -9,6 +9,14 @@
     group = "grafana";
   };
 
+  services.postgresql = {
+    ensureDatabases = ["grafana"];
+    ensureUsers = [{
+      name = "grafana";
+      ensurePermissions = { "DATABASE grafana" = "ALL PRIVILEGES"; };
+    }];
+  };
+
   services.grafana = {
     enable = true;
     settings = {
@@ -29,6 +37,13 @@
 
         role_attribute_path = "contains(groups[*], 'grafana-admin') && 'GrafanaAdmin' || contains(groups[*], 'grafana-editor') && 'Editor' || 'Viewer'";
         allow_assign_grafana_admin = true;
+      };
+
+      database = {
+        type = "postgres";
+        host = "/var/run/postgresql/";
+        name = "grafana";
+        user = "grafana";
       };
 
       security = {
