@@ -9,12 +9,12 @@
     "${modulesPath}/profiles/qemu-guest.nix"
     "${modulesPath}/profiles/headless.nix"
     disko.nixosModules.default
-    ./july
+    ./hosts/july
   ];
 
   boot.loader.grub.devices = ["/dev/vda"];
 
-  disko.devices = import ./july/disk-config.nix {
+  disko.devices = import ./hosts/july/disk-config.nix {
     inherit lib;
   };
 
