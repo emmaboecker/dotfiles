@@ -1,6 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,6 +46,7 @@
     nixos-generators,
     deploy-rs,
     agenix,
+    home-manager,
     ...
   } @ attrs: let
     system = "x86_64-linux";
@@ -59,13 +64,24 @@
       ];
     };
   in {
-    nixosConfigurations.july = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [
-        ./july.nix
-        agenix.nixosModules.default
-      ];
+    nixosConfigurations = {
+      july = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./july.nix
+          agenix.nixosModules.default
+        ];
+      };
+      harper = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./harper.nix
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
+        ];
+      };
     };
     deploy.sshOpts = ["-t"];
     deploy.nodes.july = {
