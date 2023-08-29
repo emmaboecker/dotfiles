@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./zsh.nix
+    ./gnome-keyring.nix
   ];
 
   programs.home-manager.enable = true;
@@ -13,6 +14,8 @@
     signal-desktop
     fluffychat
     telegram-desktop
+
+    vscode
 
     gnome.gnome-tweaks
 
