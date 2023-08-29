@@ -10,6 +10,11 @@
   home.packages = with pkgs; [
     discord
     spotify
+    signal-desktop
+    fluffychat
+    telegram-desktop
+
+    gnome.gnome-tweaks
 
     rnix-lsp
 
