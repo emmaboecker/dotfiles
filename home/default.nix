@@ -14,6 +14,9 @@
     signal-desktop
     fluffychat
     telegram-desktop
+    obsidian
+
+    nextcloud-client
 
     vscode
 
@@ -21,7 +24,17 @@
 
     rnix-lsp
 
+    rustup
+    gcc
+    cmake
+    gnumake
+
+    pkg-config
+    
+    openssl.dev
+
     git
+    git-lfs
     just
   ];
 }
