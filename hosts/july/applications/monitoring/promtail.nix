@@ -1,8 +1,8 @@
 {config, ...}: {
-  users.users.promtail.extraGroups = ["nginx"];
+  # users.users.promtail.extraGroups = ["nginx"];
 
   services.promtail = {
-    enable = true;
+    enable = false;
     configuration = {
       server = {
         http_listen_port = 0;

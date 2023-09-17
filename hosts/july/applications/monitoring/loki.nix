@@ -1,14 +1,15 @@
 {...}: {
   services.loki = {
-    enable = true;
+    enable = false; 
 
     configuration = {
       auth_enabled = false;
       server.http_listen_port = 3100;
+      server.http_listen_address = "127.0.0.1";
 
       ingester = {
         lifecycler = {
-          address = "0.0.0.0";
+          address = "127.0.0.1";
           ring = {
             kvstore.store = "inmemory";
             replication_factor = 1;
@@ -71,4 +72,9 @@
       frontend.max_outstanding_per_tenant = 4096;
     };
   };
+
+  # systemd.services.loki = {
+  #   after = ["network.target"];
+  #   wants = ["network.target"];
+  # };
 }

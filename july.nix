@@ -14,6 +14,8 @@
 
   boot.loader.grub.devices = ["/dev/vda"];
 
+  boot.kernel.sysctl."vm.overcommit_memory" = "1";
+
   disko.devices = import ./hosts/july/disk-config.nix {
     inherit lib;
   };

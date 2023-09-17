@@ -15,6 +15,7 @@
     fluffychat
     telegram-desktop
     obsidian
+    thunderbird
 
     nextcloud-client
 

@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: {
+  users.users.nextcloud.extraGroups = ["postgres"];
+
   age.secrets.nextcloud-admin = {
     file = "${self}/secrets/nextcloud-admin.age";
     owner = "nextcloud";
