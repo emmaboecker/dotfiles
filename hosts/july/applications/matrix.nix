@@ -19,12 +19,6 @@
     return 200 '${builtins.toJSON data}';
   '';
 in {
-  # age.secrets.matrix-secret = {
-  #   file = "${self}/secrets/matrix-secret.age";
-  #   owner = "matrix-synapse";
-  #   group = "matrix-synapse";
-  # };
-
   uwumarie.reverse-proxy.services = {
     "${serverName}" = {
       locations."/" = {
@@ -73,6 +67,11 @@ in {
     };
   };
 
+  systemd.services.conduit = {
+    after = ["network-online.target"];
+    wants = ["network-online.target"];
+  };
+
   age.secrets.syncv3_secret.file = "${self}/secrets/syncv3_secret.age";
 
   virtualisation.oci-containers.containers.sliding-sync-proxy = {
@@ -97,84 +96,6 @@ in {
   };
 
   services.postgresql = {
-    ensureUsers = [
-      {
-        name = "mautrix-whatsapp";
-        ensurePermissions = {
-          "DATABASE \"mautrix-whatsapp\"" = "ALL PRIVILEGES";
-        };
-      }
-    ];
-    ensureDatabases = ["mautrix-whatsapp" "syncv3"];
+    ensureDatabases = ["syncv3"];
   };
-
-  services.mautrix-whatsapp = {
-    enable = true;
-    serviceDependencies = [
-      "conduit.service"
-    ];
-
-    settings = {
-      appservice = {
-        database = {
-          type = "postgres";
-          uri = "postgresql:///mautrix-whatsapp?host=/run/postgresql";
-        };
-        ephemeral_events = false;
-        id = "whatsapp";
-
-        address = "http://localhost:29318";
-        hostname = "0.0.0.0";
-        port = 29318;
-      };
-      homeserver = {
-        address = "https://matrix.boecker.dev:443";
-        domain = "boecker.dev";
-        software = "standard";
-        async_media = false;
-        websocket = false;
-      };
-      bridge = {
-        encryption = {
-          allow = true;
-          default = true;
-          require = true;
-        };
-        history_sync = {
-          request_full_sync = true;
-        };
-        mute_bridging = true;
-        permissions = {
-          "boecker.dev" = "user";
-          "@emma:boecker.dev" = "admin";
-        };
-        private_chat_portal_meta = true;
-        provisioning = {
-          shared_secret = "disable";
-        };
-      };
-      metrics = {
-        enabled = true;
-        listen = "127.0.0.1:8918";
-      };
-    };
-  };
-
-  systemd.services.conduit = {
-    after = ["network-online.target" "postgresql.service"];
-    wants = ["network-online.target" "postgresql.service"];
-  };
-
-
-  services.prometheus.scrapeConfigs = [
-    {
-      job_name = "mautrix-whatsapp";
-      metrics_path = "/metrics";
-      static_configs = [
-        {
-          targets = ["127.0.0.1:8918"];
-        }
-      ];
-    }
-  ];
 }
