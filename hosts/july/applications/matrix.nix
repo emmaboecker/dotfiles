@@ -1,13 +1,17 @@
 {
   pkgs,
   self,
+  config,
   ...
 }: let
   serverName = "boecker.dev";
   matrixDomain = "matrix.boecker.dev";
+
   clientConfig."m.homeserver".base_url = "https://${matrixDomain}";
   clientConfig."m.homeserver".server_name = "boecker.dev";
   clientConfig."m.identity_server".base_url = "https://vector.im";
+  clientConfig."org.matrix.msc3575.proxy".url = "https://${matrixDomain}";
+
   serverConfig."m.server" = "${matrixDomain}:443";
   mkWellKnown = data: ''
     add_header Content-Type application/json;
@@ -35,6 +39,18 @@ in {
         extraConfig = ''
           client_max_body_size 50M;
           proxy_http_version 1.1;
+
+          proxy_set_header X-Forwarded-For $remote_addr;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header Host $host;
+        '';
+      };
+      locations."~ ^/(client/|_matrix/client/unstable/org.matrix.msc3575/sync)" = {
+        proxyPass = "http://localhost:6168";
+        extraConfig = ''
+          proxy_set_header X-Forwarded-For $remote_addr;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header Host $host;
         '';
       };
     };
@@ -57,6 +73,29 @@ in {
     };
   };
 
+  age.secrets.syncv3_secret.file = "${self}/secrets/syncv3_secret.age";
+
+  virtualisation.oci-containers.containers.sliding-sync-proxy = {
+    image = "ghcr.io/matrix-org/sliding-sync:latest";
+
+    environmentFiles = [
+      config.age.secrets.syncv3_secret.path
+    ];
+
+    environment = {
+      SYNCV3_SERVER = "http://localhost:6167";
+      SYNCV3_DB = "postgresql:///syncv3?host=/run/postgresql";
+      SYNCV3_BINDADDR = "0.0.0.0:6168";
+    };
+
+    extraOptions = ["--network=host"];
+  };
+
+  systemd.services.podman-sliding-sync-proxy = {
+    after = ["network-online.target" "postgresql.service"];
+    wants = ["network-online.target" "postgresql.service"];
+  };
+
   services.postgresql = {
     ensureUsers = [
       {
@@ -66,7 +105,7 @@ in {
         };
       }
     ];
-    ensureDatabases = ["mautrix-whatsapp"];
+    ensureDatabases = ["mautrix-whatsapp" "syncv3"];
   };
 
   services.mautrix-whatsapp = {

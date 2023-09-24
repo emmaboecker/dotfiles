@@ -17,6 +17,7 @@ in {
   "secrets/ris-tokens.age".publicKeys = allKeys;
 
   "secrets/matrix-secret.age".publicKeys = allKeys;
+  "secrets/syncv3_secret.age".publicKeys = allKeys;
 
   "secrets/authentik-redis-password.age".publicKeys = allKeys;
   "secrets/authentik-secrets.age".publicKeys = allKeys;
