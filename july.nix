@@ -36,4 +36,6 @@
       "nixpkgs=${nixpkgs}"
     ];
   };
+
+  programs.nix-ld.enable = true;
 }
