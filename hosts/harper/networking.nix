@@ -7,7 +7,6 @@
 
     networkmanager = {
       enable = true;
-      firewallBackend = "nftables";
     };
 
     firewall = {
