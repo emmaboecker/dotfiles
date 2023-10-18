@@ -1,5 +1,5 @@
 {
-  config,
+  # config,
   self,
   ...
 }: {
@@ -9,7 +9,7 @@
     image = "docker.io/mongo";
 
     environmentFiles = [
-      config.age.secrets.mongo-root.path
+      # config.age.secrets.mongo-root.path
     ];
 
     volumes = [
