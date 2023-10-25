@@ -6,15 +6,26 @@
   ...
 }:
 {
-  age.secrets.aufbaubot-deletions.file = "${self}/secrets/aufbaubot-deletions.age";
+  users.users.aufbaubot = {
+    isSystemUser = true;
+    group = "aufbaubot";
+  };
+  users.groups.aufbaubot = {};
+
+  age.secrets.aufbaubot-deletions = {
+    file = "${self}/secrets/aufbaubot-deletions.age";
+    owner = "aufbaubot";
+    group = "aufbaubot";
+  };
   age.secrets.aufbaubot-env.file = "${self}/secrets/aufbaubot-env.age";
 
   systemd.services.aufbaubot = {
     description = "Telegram Bot for Liste Aufbau in Linksjugend ['solid]";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
-    # environment = {
-    # };
+    environment = {
+      DELETIONS_FILE = config.age.secrets.aufbaubot-deletions.path;
+    };
     serviceConfig = {
       EnvironmentFile = config.age.secrets.aufbaubot-env.path;
       ExecStart = "${aufbaubot.packages.${pkgs.system}.default}/bin/aufbaubot";
@@ -43,7 +54,9 @@
       RestrictSUIDSGID = true;
       SystemCallArchitectures = "native";
       SystemCallFilter = [ "@system-service" "~@resources" "~@privileged" ];
-      DynamicUser = "yes";
+      User = "aufbaubot";
+      Group = "aufbaubot";
+      # DynamicUser = "yes";
     };
   };
 }
