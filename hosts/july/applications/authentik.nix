@@ -6,7 +6,7 @@
   image = "ghcr.io/goauthentik/server:2023.6.1";
 
   mkEnvironemt = {
-    AUTHENTIK_POSTGRESQL__HOST = "localhost";
+    AUTHENTIK_POSTGRESQL__HOST = "/run/postgresql";
     AUTHENTIK_POSTGRESQL__NAME = "authentik";
     AUTHENTIK_POSTGRESQL__USER = "authentik";
     AUTHENTIK_POSTGRESQL__PORT = "5432";
@@ -49,6 +49,10 @@ in {
 
       environment = mkEnvironemt;
 
+      volumes = [
+        "/run/postgresql:/run/postgresql:ro"
+      ];
+
       extraOptions = [
         "--network=host"
       ];
@@ -64,6 +68,10 @@ in {
         config.age.secrets.authentik-secrets.path
       ];
       environment = mkEnvironemt;
+
+      volumes = [
+        "/run/postgresql:/run/postgresql:ro"
+      ];
 
       extraOptions = [
         "--network=host"

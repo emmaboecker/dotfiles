@@ -91,8 +91,8 @@ in {
   };
 
   systemd.services.podman-sliding-sync-proxy = {
-    after = ["network-online.target" "postgresql.service"];
-    wants = ["network-online.target" "postgresql.service"];
+    after = ["postgresql.service" "matrix-conduit.service"];
+    wants = ["postgresql.service" "matrix-conduit.service"];
   };
 
   services.postgresql = {
