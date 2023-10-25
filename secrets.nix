@@ -14,6 +14,9 @@ in {
   "secrets/iws-rs.age".publicKeys = allKeys;
   "secrets/mongo-root.age".publicKeys = allKeys;
 
+  "secrets/aufbaubot-deletions.age".publicKeys = allKeys;
+  "secrets/aufbaubot-env.age".publicKeys = allKeys;
+
   "secrets/ris-tokens.age".publicKeys = allKeys;
 
   "secrets/matrix-secret.age".publicKeys = allKeys;

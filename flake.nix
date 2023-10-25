@@ -33,6 +33,10 @@
       url = "github:StckOverflw/railboard-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    aufbaubot = {
+      url = "github:StckOverflw/aufbaubot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     conduit = {
       url = "gitlab:famedly/conduit/next";
       # inputs.nixpkgs.follows = "nixpkgs";
