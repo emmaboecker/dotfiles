@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698270631,
-        "narHash": "sha256-drGlwqsrlcMBiUcsjIJ8ptqBsit3/qU5ydVW4/RgnRw=",
+        "lastModified": 1698274934,
+        "narHash": "sha256-NqYVNBGMkCVx+eS+4TXOODH6NzdbuWBqAk3qvlwKA+4=",
         "owner": "StckOverflw",
         "repo": "aufbaubot",
-        "rev": "05fe93560d0bdb8435f070a7bcdd4dd75c286afc",
+        "rev": "43cada961794ad712fee620a782ae3d4df9aae38",
         "type": "github"
       },
       "original": {
