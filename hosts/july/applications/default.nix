@@ -9,5 +9,7 @@
     ./nextcloud.nix
     ./railboard-api.nix
     ./authentik.nix
+
+    ./minecraft.nix
   ];
 }

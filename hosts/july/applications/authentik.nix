@@ -23,7 +23,20 @@
     AUTHENTIK_AVATARS = "gravatar,initials";
   };
 in {
-  age.secrets.authentik-secrets.file = "${self}/secrets/authentik-secrets.age";
+  users.users.authentik = {
+    isSystemUser = true;
+    group = "authentik";
+    uid = 78769;
+  };
+  users.groups.authentik = {
+    gid = 78769;
+  };
+
+  age.secrets.authentik-secrets = {
+    file = "${self}/secrets/authentik-secrets.age";
+    owner = "authentik";
+    group = "authentik";
+  };
 
   services.postgresql = {
     ensureUsers = [
@@ -56,6 +69,8 @@ in {
       extraOptions = [
         "--network=host"
       ];
+
+      user = "${toString config.users.users.authentik.uid}:${toString config.users.groups.authentik.gid}";
     };
     authentik-worker = {
       image = image;
@@ -76,6 +91,8 @@ in {
       extraOptions = [
         "--network=host"
       ];
+
+      user = "${toString config.users.users.authentik.uid}:${toString config.users.groups.authentik.gid}";
     };
   };
 

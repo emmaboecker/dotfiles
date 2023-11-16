@@ -18,6 +18,11 @@
       22
       80
       443
+      25565
+    ];
+
+    firewall.allowedUDPPorts = [
+      24454
     ];
 
     interfaces = {

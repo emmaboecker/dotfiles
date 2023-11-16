@@ -72,28 +72,28 @@ in {
     wants = ["network-online.target"];
   };
 
-  age.secrets.syncv3_secret.file = "${self}/secrets/syncv3_secret.age";
+  # age.secrets.syncv3_secret.file = "${self}/secrets/syncv3_secret.age";
 
-  virtualisation.oci-containers.containers.sliding-sync-proxy = {
-    image = "ghcr.io/matrix-org/sliding-sync:latest";
+  # virtualisation.oci-containers.containers.sliding-sync-proxy = {
+  #   image = "ghcr.io/matrix-org/sliding-sync:latest";
 
-    environmentFiles = [
-      config.age.secrets.syncv3_secret.path
-    ];
+  #   environmentFiles = [
+  #     config.age.secrets.syncv3_secret.path
+  #   ];
 
-    environment = {
-      SYNCV3_SERVER = "http://localhost:6167";
-      SYNCV3_DB = "postgresql:///syncv3?host=/run/postgresql";
-      SYNCV3_BINDADDR = "0.0.0.0:6168";
-    };
+  #   environment = {
+  #     SYNCV3_SERVER = "http://localhost:6167";
+  #     SYNCV3_DB = "postgresql:///syncv3?host=/run/postgresql";
+  #     SYNCV3_BINDADDR = "0.0.0.0:6168";
+  #   };
 
-    extraOptions = ["--network=host"];
-  };
+  #   extraOptions = ["--network=host"];
+  # };
 
-  systemd.services.podman-sliding-sync-proxy = {
-    after = ["postgresql.service" "matrix-conduit.service"];
-    wants = ["postgresql.service" "matrix-conduit.service"];
-  };
+  # systemd.services.podman-sliding-sync-proxy = {
+  #   after = ["postgresql.service" "matrix-conduit.service"];
+  #   wants = ["postgresql.service" "matrix-conduit.service"];
+  # };
 
   services.postgresql = {
     ensureDatabases = ["syncv3"];
