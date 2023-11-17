@@ -8,7 +8,8 @@
       TYPE="PAPER";
       MOTD = "hallo";
       SPAWN_PROTECTION="0";
-      VIEW_DISTANCE="12";
+      VIEW_DISTANCE="16";
+      SIMULATION_DISTANCE="6";
       PLUGINS = "
       https://cdn.modrinth.com/data/9eGKb6K1/versions/b2fQucaC/voicechat-bukkit-2.4.28.jar
       https://hangarcdn.papermc.io/plugins/CyntrixAlgorithm/DeathChest/versions/2.1.1/PAPER/deathchest.jar
