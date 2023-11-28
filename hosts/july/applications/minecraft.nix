@@ -20,6 +20,7 @@
       ";
       DISABLE_HEALTHCHECK = "true";
       MEMORY="5G";
+      ALLOW_FLIGHT="TRUE";
     };
 
     volumes = [

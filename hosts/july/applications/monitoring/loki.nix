@@ -1,6 +1,6 @@
 {...}: {
   services.loki = {
-    enable = false; 
+    enable = true; 
 
     configuration = {
       auth_enabled = false;
@@ -65,7 +65,10 @@
       compactor = {
         working_directory = "/var/lib/loki";
         shared_store = "filesystem";
-        compactor_ring.kvstore.store = "inmemory";
+        compactor_ring = {
+          instance_interface_names = ["ens3"];
+          kvstore.store = "inmemory";
+        };
       };
 
       query_scheduler.max_outstanding_requests_per_tenant = 4096;
@@ -73,8 +76,8 @@
     };
   };
 
-  # systemd.services.loki = {
-  #   after = ["network.target"];
-  #   wants = ["network.target"];
-  # };
+  systemd.services.loki = {
+    after = ["network.target"];
+    wants = ["network.target"];
+  };
 }

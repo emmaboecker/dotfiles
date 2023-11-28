@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  image = "ghcr.io/goauthentik/server:2023.6.1";
+  image = "ghcr.io/goauthentik/server:2023.10.4";
 
   mkEnvironemt = {
     AUTHENTIK_POSTGRESQL__HOST = "/run/postgresql";
@@ -26,10 +26,10 @@ in {
   users.users.authentik = {
     isSystemUser = true;
     group = "authentik";
-    uid = 78769;
+    uid = 985;
   };
   users.groups.authentik = {
-    gid = 78769;
+    gid = 982;
   };
 
   age.secrets.authentik-secrets = {
