@@ -11,5 +11,9 @@
     ./authentik.nix
 
     ./minecraft.nix
+
+    ./fivem.nix
+
+    ./emmalink.nix
   ];
 }

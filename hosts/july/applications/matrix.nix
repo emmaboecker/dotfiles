@@ -1,7 +1,6 @@
 {
   pkgs,
   self,
-  config,
   ...
 }: let
   serverName = "boecker.dev";

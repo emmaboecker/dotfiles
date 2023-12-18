@@ -26,4 +26,8 @@ in {
   "secrets/authentik-secrets.age".publicKeys = allKeys;
 
   "secrets/grafana-oauth-secret.age".publicKeys = allKeys;
+
+  "secrets/fivem-secrets.age".publicKeys = allKeys;
+  
+  "secrets/emmalink-test-password.age".publicKeys = allKeys;
 }

@@ -13,7 +13,7 @@
     ensureDatabases = ["grafana"];
     ensureUsers = [{
       name = "grafana";
-      ensurePermissions = { "DATABASE grafana" = "ALL PRIVILEGES"; };
+      ensureDBOwnership = true;
     }];
   };
 

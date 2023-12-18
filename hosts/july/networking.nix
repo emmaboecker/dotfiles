@@ -19,10 +19,12 @@
       80
       443
       25565
+      30120
     ];
 
     firewall.allowedUDPPorts = [
       24454
+      30120
     ];
 
     interfaces = {
