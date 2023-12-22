@@ -1,4 +1,4 @@
-{ pkgs, self, config, ... }: 
+{ emmalink, pkgs, self, config, ... }: 
 {
   users.users.emmalink = {
     isSystemUser = true;
@@ -11,27 +11,45 @@
 
   age.secrets.emmalink-secrets.file = "${self}/secrets/emmalink-secrets.age";
 
-  virtualisation.oci-containers.containers.emmalink = {
-      image = "ghcr.io/emmaboecker/emmalink/web:latest";
-
-      environmentFiles = [
-        config.age.secrets.emmalink-secrets.path
-      ];
-
-      environment = {
-        PORT = "3005";
-      };
-
-      volumes = [
-        "/run/postgresql:/run/postgresql:ro"
-      ];
-
-      extraOptions = [
-        "--network=host"
-      ];
-
-      user = "${toString config.users.users.emmalink.uid}:${toString config.users.groups.emmalink.gid}";
+  systemd.services.emmalink = {
+    description = "Emmalink";
+    after = [ "network.target" "postgresql.service" ];
+    wantedBy = [ "multi-user.target" ];
+    environment = {
+      PORT = "3005";
     };
+    serviceConfig = {
+      EnvironmentFile = config.age.secrets.emmalink-secrets.path;
+      ExecStart = "${pkgs.nodejs_20}/bin/node ${emmalink.packages.${pkgs.system}.default}/standalone/server.js";
+      Restart = "on-failure";
+      CapabilityBoundingSet = [ "" ];
+      LockPersonality = true;
+      NoNewPrivileges = true;
+      PrivateDevices = true;
+      PrivateTmp = true;
+      PrivateUsers = true;
+      ProcSubset = "pid";
+      ProtectClock = true;
+      ProtectControlGroups = true;
+      ProtectHome = true;
+      ProtectHostname = true;
+      ProtectKernelLogs = true;
+      ProtectKernelModules = true;
+      ProtectKernelTunables = true;
+      ProtectProc = "invisible";
+      ProtectSystem = "strict";
+      ReadWritePaths = [];
+      RemoveIPC = true;
+      RestrictAddressFamilies = [ "AF_INET" "AF_INET6" ];
+      RestrictNamespaces = true;
+      RestrictRealtime = true;
+      RestrictSUIDSGID = true;
+      SystemCallArchitectures = "native";
+      # SystemCallFilter = [ "@system-service" "~@resources" "~@privileged" ];
+      User = config.users.users.emmalink.uid;
+      Group = config.users.groups.emmalink.gid;
+    };
+  };
 
   services.postgresql = {
     ensureUsers = [

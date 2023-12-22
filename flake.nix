@@ -41,6 +41,10 @@
       url = "gitlab:famedly/conduit/next";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+    emmalink = {
+      url = "github:emmaboecker/emmalink";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
