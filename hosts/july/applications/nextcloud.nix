@@ -14,7 +14,7 @@
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud27;
+    package = pkgs.nextcloud28;
 
     https = true;
     hostName = "cloud.boecker.dev";
