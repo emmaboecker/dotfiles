@@ -31,4 +31,6 @@ in {
   
   "secrets/emmalink-test-password.age".publicKeys = allKeys;
   "secrets/emmalink-secrets.age".publicKeys = allKeys;
+
+  "secrets/etog-modpack-secrets.age".publicKeys = allKeys;
 }
