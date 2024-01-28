@@ -33,4 +33,6 @@ in {
   "secrets/emmalink-secrets.age".publicKeys = allKeys;
 
   "secrets/etog-modpack-secrets.age".publicKeys = allKeys;
+
+  "secrets/wireguard/dn42/peer1-private.age".publicKeys = allKeys;
 }

@@ -17,5 +17,7 @@
     ./emmalink.nix
 
     ./teamspeak.nix
+
+    ./bird2.nix
   ];
 }

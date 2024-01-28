@@ -1,4 +1,4 @@
-{...}: {
+{self, config, pkgs, ...}: {
   services.openssh = {
     enable = true;
     openFirewall = true;
@@ -9,10 +9,29 @@
     };
   };
 
+  age.secrets.dn42-peer1.file = "${self}/secrets/wireguard/dn42/peer1-private.age";
+
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+  boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
+
   networking = {
     hostName = "july";
 
-    nftables.enable = true;
+    nftables = {
+      enable = true;
+      tables.forwarding = {
+        family = "inet";
+        content = ''
+          chain forward {
+            type filter hook forward priority 0; policy drop;
+
+            iifname "dn42n*" oifname "dn42n*" accept
+          }
+        '';
+      };
+    };
+
+    firewall.interfaces."dn42n*".allowedTCPPorts = [ 179 ];
 
     firewall.allowedTCPPorts = [
       22
@@ -25,7 +44,10 @@
     firewall.allowedUDPPorts = [
       24454
       30120
+      51821
     ];
+
+    firewall.checkReversePath = false;
 
     interfaces = {
       ens3 = {
@@ -48,6 +70,20 @@
           {
             address = "45.129.180.33";
             prefixLength = 22;
+          }
+        ];
+      };
+      lo = {
+        ipv4.addresses = [
+          {
+            address = "172.23.181.161";
+            prefixLength = 32;
+          }
+        ];
+        ipv6.addresses = [
+          {
+            address = "fd42:e99e:1f58::1";
+            prefixLength = 128;
           }
         ];
       };
@@ -77,8 +113,28 @@
       "8.8.8.8"
       "8.8.4.4"
     ];
-  };
 
+    wireguard.interfaces = {
+      dn42n0 = { # Marie
+        listenPort = 51821;
+        allowedIPsAsRoutes = false;
+        privateKeyFile = config.age.secrets.dn42-peer1.path; # 6IgFC2JAZ0xjZhDaH3YxpruFtMkoEPralJXzctBCnyA=
+
+        peers = [
+          {
+            publicKey = "iEb03LhZwbDxtp+LhskWrnV+GKR0cGHweQGN7P0zsg0=";
+            allowedIPs = [ "::/0" ];
+            endpoint = "2a03:4000:5f:f5b:::51821";
+          }
+        ];
+
+        postSetup = ''
+            ${pkgs.iproute}/bin/ip -6 addr add fe80::d119:602d:d206:e469/64 dev dn42n0
+        '';
+      };
+    };
+  };
+    
   boot.kernel.sysctl = {
     "net.ipv6.conf.default.accept_ra"  = 0;
     "net.ipv6.conf.default.autoconf"   = 0;
