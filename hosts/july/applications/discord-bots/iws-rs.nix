@@ -12,8 +12,9 @@
     description = "IWS Discord Bot";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
-    # environment = {
-    # };
+    environment = {
+      RUST_LOG = "DEBUG";
+    };
     serviceConfig = {
       EnvironmentFile = config.age.secrets.iws-rs.path;
       ExecStart = "${iws-rs.packages.${pkgs.system}.default}/bin/iws-rs";

@@ -15,5 +15,7 @@
     ./fivem.nix
 
     ./emmalink.nix
+
+    ./teamspeak.nix
   ];
 }

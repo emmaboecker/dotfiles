@@ -59,6 +59,7 @@
       MEMORY="8G";
       ALLOW_FLIGHT="TRUE";
       CF_PAGE_URL="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9";
+      OPS="c367e2c1b37745cf92836ad4ee70734e,b9496e290b764da9ba6d85992b1e6f86";
     };
 
     volumes = [
