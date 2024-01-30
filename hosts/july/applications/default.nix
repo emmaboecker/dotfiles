@@ -19,5 +19,6 @@
     ./teamspeak.nix
 
     ./bird2.nix
+    ./dns/bind.nix
   ];
 }

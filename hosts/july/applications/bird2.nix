@@ -14,8 +14,8 @@ in
     checkConfig = false;
 
     config = ''
-      define OWNAS =  4242423161;
-      define OWNIP =  172.23.181.161;
+      define OWNAS = 4242423161;
+      define OWNIP = 172.23.181.161;
       define OWNIPv6 = fd42:e99e:1f58::1;
       define OWNNET = 172.23.181.160/27;
       define OWNNETv6 = fd42:e99e:1f58::/48;
@@ -151,6 +151,13 @@ in
 
       protocol bgp marie_v6 from dnpeers {
           neighbor fe80::d56f:a7fc:c62d:b88a%dn42n0 as 4242423085;
+      }
+
+      protocol bgp kioubit_v6 from dnpeers {
+          neighbor fe80::ade0%dn42n1 as 4242423914;
+      }
+      protocol bgp kioubit from dnpeers {
+          neighbor 172.20.53.97 as 4242423914;
       }
     '';
   };

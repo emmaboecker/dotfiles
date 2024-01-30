@@ -34,5 +34,7 @@ in {
 
   "secrets/etog-modpack-secrets.age".publicKeys = allKeys;
 
+  "secrets/wireguard/river-private.age".publicKeys = allKeys;
   "secrets/wireguard/dn42/peer1-private.age".publicKeys = allKeys;
+  "secrets/wireguard/dn42/peer2-private.age".publicKeys = allKeys;
 }

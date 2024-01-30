@@ -1,0 +1,17 @@
+$ORIGIN dn42.
+$TTL 10m
+emma        IN    SOA     ns1.emma.dn42. emma.boecker.dev. (
+                          1            ; serial
+                          4h           ; refresh
+                          15m          ; retry
+                          8h           ; expire
+                          2m)          ; negative caching TTL
+
+       IN    NS    ns1.emma.dn42.
+
+$ORIGIN emma.dn42.
+$TTL 1m
+ns1    IN    A     172.23.181.161
+ns1    IN    AAAA  fd42:e99e:1f58:53::1
+@      IN    A     172.23.181.161
+@      IN    AAAA  fd42:e99e:1f58::1
