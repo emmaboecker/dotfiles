@@ -52,7 +52,7 @@
     trusted-public-keys = [ "iws-rs.cachix.org-1:gSraEErjoEJ7F9wjJtQsFKr/8p5pBrHFb5Lwd3YYykU=" ];
   };
 
-  uwumarie.reverse-proxy.services."iws.boecker.dev" = {
+  services.nginx.virtualHosts."iws.boecker.dev" = {
     locations."/" = {
       proxyPass = "http://localhost:8080";
     };

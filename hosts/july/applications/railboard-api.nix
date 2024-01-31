@@ -50,7 +50,7 @@
     };
   };
 
-  uwumarie.reverse-proxy.services."api.rail.boecker.dev" = {
+  services.nginx.virtualHosts."api.rail.boecker.dev" = {
     serverAliases = ["api.rail.stckoverflw.net"];
 
     locations."/" = {

@@ -104,7 +104,7 @@ in {
     wants = ["network-online.target" "postgresql.service"];
   };
 
-  uwumarie.reverse-proxy.services."sso.boecker.dev" = {
+  services.nginx.virtualHosts."sso.boecker.dev" = {
     locations."/" = {
       proxyPass = "http://localhost:9000";
       proxyWebsockets = true;

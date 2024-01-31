@@ -1,24 +1,20 @@
 {...}: {
   imports = [
-    ./reverse-proxy.nix
+    ./bots
     ./databases
-    ./discord-bots
-    ./telegram-bots/aufbaubot.nix
     ./monitoring
     ./matrix.nix
-    ./nextcloud.nix
-    ./railboard-api.nix
+    ./reverse-proxy.nix
+
     ./authentik.nix
 
-    ./minecraft.nix
-
-    ./fivem.nix
+    ./nextcloud.nix
+    ./railboard-api.nix
 
     ./emmalink.nix
 
+    ./minecraft.nix
+    ./fivem.nix
     ./teamspeak.nix
-
-    ./bird2.nix
-    ./dns/bind.nix
   ];
 }

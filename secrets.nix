@@ -8,6 +8,8 @@ let
 
   allKeys = userKeys ++ [systemKey];
 in {
+  "secrets/cloudflare-api-key.age".publicKeys = allKeys;
+
   "secrets/nextcloud-admin.age".publicKeys = allKeys;
 
   "secrets/iws-token.age".publicKeys = allKeys;

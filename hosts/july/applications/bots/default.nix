@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    # ./iws.nix
     ./iws-rs.nix
+    ./aufbaubot.nix
   ];
 }

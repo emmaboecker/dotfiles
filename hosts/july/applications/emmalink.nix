@@ -79,10 +79,9 @@
     '';
   };
 
-  uwumarie.reverse-proxy.services."l.boecker.dev" = {
+  services.nginx.virtualHosts."l.boecker.dev" = {
     locations."/" = {
       proxyPass = "http://localhost:3005";
-      proxyWebsockets = true;
     };
   };
 }

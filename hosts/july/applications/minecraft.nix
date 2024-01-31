@@ -31,7 +31,7 @@
   #   extraOptions = ["--network=host"];
   # };
 
-  # uwumarie.reverse-proxy.services."map.boecker.dev" = {
+  # services.nginx.virtualHosts."map.boecker.dev" = {
   #   locations."/" = {
   #     proxyPass = "http://localhost:8100";
   #   };

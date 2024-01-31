@@ -21,10 +21,6 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    marie = {
-      url = "github:NyCodeGHG/dotfiles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     iws-rs = {
       url = "github:StckOverflw/iws-rs";
       inputs.nixpkgs.follows = "nixpkgs";

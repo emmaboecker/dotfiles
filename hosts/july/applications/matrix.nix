@@ -18,7 +18,7 @@
     return 200 '${builtins.toJSON data}';
   '';
 in {
-  uwumarie.reverse-proxy.services = {
+  services.nginx.virtualHosts = {
     "${serverName}" = {
       locations."/" = {
         return = "301 https://www.boecker.dev$request_uri";

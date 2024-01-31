@@ -20,6 +20,8 @@
   age.secrets.aufbaubot-env.file = "${self}/secrets/aufbaubot-env.age";
 
   systemd.services.aufbaubot = {
+    enable = false;
+
     description = "Telegram Bot for Liste Aufbau in Linksjugend ['solid]";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];

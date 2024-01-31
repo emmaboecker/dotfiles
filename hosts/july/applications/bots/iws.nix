@@ -44,7 +44,7 @@
     wants = ["network-online.target" "podman-mongodb.service"];
   };
 
-  uwumarie.reverse-proxy.services."iws.boecker.dev" = {
+  services.nginx.virtualHosts."iws.boecker.dev" = {
     locations."/" = {
       proxyPass = "http://localhost:8080";
     };

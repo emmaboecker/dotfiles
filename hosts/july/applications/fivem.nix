@@ -41,7 +41,7 @@
     ];
   };
 
-  uwumarie.reverse-proxy.services."fivem.boecker.dev" = {
+  services.nginx.virtualHosts."fivem.boecker.dev" = {
     locations."/" = {
       proxyPass = "http://localhost:40120";
     };

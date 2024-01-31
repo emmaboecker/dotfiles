@@ -37,8 +37,5 @@
 
   services.nginx.virtualHosts."cloud.boecker.dev" = {
     serverAliases = ["cloud.stckoverflw.net"];
-    forceSSL = true;
-    enableACME = true;
-    http2 = true;
   };
 }
