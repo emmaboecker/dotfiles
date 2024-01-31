@@ -109,6 +109,12 @@
             allowedIPs = [ "fd42:e99e:1f58:0127::2/128" "172.23.181.162/32" ];
             persistentKeepalive = 25;
           }
+          { # note 10+
+            name = "note";
+            publicKey = "4Fn/RsVriuvfDBo/c8QyjrXW19FRrATYbitptC+ibT8=";
+            allowedIPs = [ "fd42:e99e:1f58:0127::3/128" "172.23.181.163/32" ];
+            persistentKeepalive = 25;
+          }
         ];
       };
     };
