@@ -68,7 +68,6 @@
       '';
     };
 
-
     security.acme = {
       acceptTerms = true;
       defaults = {
@@ -82,6 +81,7 @@
         domain = "*.boecker.dev";
         extraDomainNames = [
           "boecker.dev"
+          "*.rail.boecker.dev"
         ];
       };
     };
