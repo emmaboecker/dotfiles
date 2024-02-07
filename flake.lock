@@ -702,11 +702,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690406179,
-        "narHash": "sha256-du2p87f1Z7DRiKrCPbGzeZ4q9vf3mvMFdTwG36UBBC4=",
+        "lastModified": 1707171713,
+        "narHash": "sha256-VM63xul8Vv7hzwxAFfs1caO3CtPTMpxddYlRWWn+rDQ=",
         "owner": "StckOverflw",
         "repo": "railboard-api",
-        "rev": "873c50ef1362dfa2fa0b54837f03303af5233d50",
+        "rev": "9a91a64024542adc24ad2ec7214b3ad0a476535f",
         "type": "github"
       },
       "original": {
