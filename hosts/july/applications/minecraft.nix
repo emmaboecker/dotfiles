@@ -1,4 +1,4 @@
-{ self, config, ... }:
+{ ... }:
 {
   # virtualisation.oci-containers.containers.minecraft = {
   #   image = "itzg/minecraft-server";
@@ -37,20 +37,20 @@
   #   };
   # };
 
-  age.secrets.etog-modpack = {
-    file = "${self}/secrets/etog-modpack-secrets.age";
-  };
+  # age.secrets.etog-modpack = {
+  #   file = "${self}/secrets/etog-modpack-secrets.age";
+  # };
 
   virtualisation.oci-containers.containers.minecraft = {
     image = "itzg/minecraft-server";
 
-    environmentFiles = [
-      config.age.secrets.etog-modpack.path 
-    ];
+    # environmentFiles = [
+    #   config.age.secrets.etog-modpack.path 
+    # ];
 
     environment = {
       EULA="TRUE";
-      TYPE="AUTO_CURSEFORGE";
+      TYPE="PAPER";
       MOTD = "hi na";
       SPAWN_PROTECTION="0";
       VIEW_DISTANCE="14";
@@ -58,12 +58,12 @@
       DISABLE_HEALTHCHECK = "true";
       MEMORY="8G";
       ALLOW_FLIGHT="TRUE";
-      CF_PAGE_URL="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9";
-      OPS="c367e2c1b37745cf92836ad4ee70734e,b9496e290b764da9ba6d85992b1e6f86";
+      # CF_PAGE_URL="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9";
+      # OPS="c367e2c1b37745cf92836ad4ee70734e,b9496e290b764da9ba6d85992b1e6f86";
     };
 
     volumes = [
-      "/var/lib/etog-modpack:/data/"
+      "/var/lib/tobi-playthrough-2:/data/"
     ];
 
     extraOptions = ["--network=host"];

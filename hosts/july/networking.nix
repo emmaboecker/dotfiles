@@ -21,12 +21,14 @@
             type filter hook forward priority 0; policy drop;
 
             iifname "dn42n*" oifname "dn42n*" accept
+            iifname "dn42n*" oifname "wg0" tcp dport 25565 accept
             iifname "wg0" accept
             ct state { established, related } accept
           }
         '';
       };
     };
+    
     firewall.allowedTCPPorts = [
       22
       80
