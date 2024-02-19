@@ -16,5 +16,7 @@
     ./minecraft.nix
     ./fivem.nix
     ./teamspeak.nix
+
+    ./home-assistant.nix
   ];
 }
