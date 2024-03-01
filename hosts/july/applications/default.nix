@@ -11,6 +11,7 @@
     ./nextcloud.nix
     ./railboard-api.nix
 
+    ./static.nix
     ./emmalink.nix
 
     ./minecraft.nix

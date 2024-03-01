@@ -37,5 +37,6 @@
     git
     git-lfs
     just
+    zoom-us
   ];
 }
