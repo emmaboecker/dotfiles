@@ -1,4 +1,4 @@
-{ config, ...}: {
+{ self, config, ...}: {
   services.openssh = {
     enable = true;
     openFirewall = true;
@@ -102,25 +102,48 @@
         ips = [
           "fd42:e99e:1f58:0127::1/64"
           "172.23.181.161/24"
+          "10.161.0.1/24"
         ];
 
         peers = [
           { # desktop
             name = "river";
             publicKey = "TKnru4+eIKssDDOlrpQKtrWOB7Cf+4mj3il2SevqxBo=";
-            allowedIPs = [ "fd42:e99e:1f58:0127::2/128" "172.23.181.162/32" ];
+            allowedIPs = [ "fd42:e99e:1f58:0127::2/128" "172.23.181.162/32" "10.161.0.2/32" ];
             persistentKeepalive = 25;
           }
           { # note 10+
             name = "note";
             publicKey = "4Fn/RsVriuvfDBo/c8QyjrXW19FRrATYbitptC+ibT8=";
-            allowedIPs = [ "fd42:e99e:1f58:0127::3/128" "172.23.181.163/32" ];
+            allowedIPs = [ "fd42:e99e:1f58:0127::3/128" "172.23.181.163/32" "10.161.0.3/32" ];
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+      wg1 = {
+        allowedIPsAsRoutes = false;
+        privateKeyFile = config.age.secrets.fritz-private.path;
+
+        ips = [
+          "192.168.178.201/24"
+        ];
+
+        peers = [
+          { # home fritzbox
+            name = "fritz-home";
+            publicKey = "1DmvSMbkh+qiivD5mdQShKrfFV6mzJIWemJmTq7f6RM=";
+            presharedKey = "+z2Ditg3KrDejJ7g5nR/K+n63/op3aTbp/W5M/CKULw=";
+            allowedIPs = [ "192.168.178.0/24" ];
+            endpoint = "asj4ixwav1fgmbmj.myfritz.net:50021";
             persistentKeepalive = 25;
           }
         ];
       };
     };
   };
+
+  age.secrets.river-private.file = "${self}/secrets/wireguard/river-private.age";
+  age.secrets.fritz-private.file = "${self}/secrets/wireguard/fritz-private.age";
     
   boot.kernel.sysctl = {
     "net.ipv6.conf.default.accept_ra"  = 0;

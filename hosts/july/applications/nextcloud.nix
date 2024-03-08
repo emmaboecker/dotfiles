@@ -24,14 +24,16 @@
 
     database.createLocally = true;
 
+    settings = {
+      trusted_domains = ["cloud.stckoverflw.net"];
+
+      trusted_proxies = ["127.0.0.1"];
+    };
+
     config = {
       dbtype = "mysql";
 
-      adminpassFile = config.age.secrets.nextcloud-admin.path;
-
-      extraTrustedDomains = ["cloud.stckoverflw.net"];
-
-      trustedProxies = ["127.0.0.1"];
+      adminpassFile = config.age.secrets.nextcloud-admin.path;      
     };
   };
 

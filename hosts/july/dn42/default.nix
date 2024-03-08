@@ -5,7 +5,6 @@
     ./dns/dnsmasq.nix
   ];
 
-  age.secrets.river-private.file = "${self}/secrets/wireguard/river-private.age";
   age.secrets.dn42-peer1.file = "${self}/secrets/wireguard/dn42/peer1-private.age";
   age.secrets.dn42-peer2.file = "${self}/secrets/wireguard/dn42/peer2-private.age";
 
