@@ -13,6 +13,7 @@
 
     ./static.nix
     ./emmalink.nix
+    ./pfica-stats.nix
 
     ./minecraft.nix
     ./fivem.nix

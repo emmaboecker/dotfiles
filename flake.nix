@@ -45,6 +45,10 @@
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pfica-stats = {
+      url = "github:emmaboecker/pfica-stats";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
