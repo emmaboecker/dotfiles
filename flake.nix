@@ -41,6 +41,10 @@
       url = "github:emmaboecker/emmalink";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mailserver = {
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

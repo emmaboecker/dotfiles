@@ -19,5 +19,7 @@
     ./teamspeak.nix
 
     ./home-assistant.nix
+
+    # ./mail.nix
   ];
 }

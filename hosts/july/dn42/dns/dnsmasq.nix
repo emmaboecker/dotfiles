@@ -4,9 +4,9 @@
 
     settings = {
       bind-interfaces = true;
-      interface = [
-        "wg0"
-      ];
+      # interface = [
+      #   "wg0"
+      # ];
       except-interface= "lo";
       listen-address = ["127.0.0.1" "fd42:e99e:1f58:53::127"];
 
