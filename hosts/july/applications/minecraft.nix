@@ -50,8 +50,9 @@
 
     environment = {
       EULA="TRUE";
-      TYPE="PAPER";
-      MOTD = "hi na";
+      TYPE="FORGE";
+      VERSION="1.20.1";
+      MOTD = "hi na - powered by boecker.dev";
       SPAWN_PROTECTION="0";
       VIEW_DISTANCE="14";
       SIMULATION_DISTANCE="6";
@@ -63,7 +64,7 @@
     };
 
     volumes = [
-      "/var/lib/tobi-playthrough-2:/data/"
+      "/var/lib/elias-joost-minecraft:/data/"
     ];
 
     extraOptions = ["--network=host"];
