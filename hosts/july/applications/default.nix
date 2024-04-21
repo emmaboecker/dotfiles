@@ -15,7 +15,7 @@
     ./emmalink.nix
     ./pfica-stats.nix
 
-    ./minecraft.nix
+    ./minecraft
     ./fivem.nix
     ./teamspeak.nix
 
