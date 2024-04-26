@@ -12,7 +12,7 @@
       VIEW_DISTANCE="14";
       SIMULATION_DISTANCE="5";
       DISABLE_HEALTHCHECK = "true";
-      MEMORY="6G";
+      MEMORY="5G";
       ALLOW_FLIGHT="TRUE";
       MODRINTH_PROJECTS="c2me-fabric,fabric-api,ferrite-core,krypton,lithium,modernfix,servercore,starlight,threadtweak,vmp-fabric,yosbr";
     };

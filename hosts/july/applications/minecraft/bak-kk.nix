@@ -14,7 +14,7 @@
       VIEW_DISTANCE="14";
       SIMULATION_DISTANCE="6";
       DISABLE_HEALTHCHECK = "true";
-      MEMORY="8G";
+      MEMORY="6G";
       ALLOW_FLIGHT="TRUE";
     };
 
