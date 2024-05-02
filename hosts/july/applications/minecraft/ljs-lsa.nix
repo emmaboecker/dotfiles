@@ -1,10 +1,11 @@
 { ... }: {
   virtualisation.oci-containers.containers.lsa-minecraft = {
-    image = "itzg/minecraft-server";
+    image = "itzg/minecraft-server:java21";
 
     environment = {
       EULA="TRUE";
       TYPE="FABRIC";
+      VERSION="1.20.4";
       SERVER_PORT = "25521";
       RCON_PORT = "25721";
       MOTD = "#moderndenken";
@@ -14,7 +15,7 @@
       DISABLE_HEALTHCHECK = "true";
       MEMORY="5G";
       ALLOW_FLIGHT="TRUE";
-      MODRINTH_PROJECTS="c2me-fabric,fabric-api,ferrite-core,krypton,lithium,modernfix,servercore,starlight,threadtweak,vmp-fabric,yosbr";
+      MODRINTH_MODPACK="adrenaserver";
     };
 
     volumes = [
