@@ -21,6 +21,7 @@
 
     ./home-assistant.nix
 
+    ./bak-kk
     # ./mail.nix
   ];
 }

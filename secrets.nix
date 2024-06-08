@@ -44,4 +44,6 @@ in {
   "secrets/wireguard/dn42/peer2-private.age".publicKeys = allKeys;
 
   "secrets/mail/emma-boecker-dev-password.age".publicKeys = allKeys;
+
+  "secrets/bak-kk/links-secrets.age".publicKeys = allKeys;
 }

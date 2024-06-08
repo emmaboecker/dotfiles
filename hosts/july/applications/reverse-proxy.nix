@@ -84,6 +84,12 @@
           "*.rail.boecker.dev"
         ];
       };
+      certs."bak.red" = {
+        domain = "*.bak.red";
+        extraDomainNames = [
+          "bak.red"
+        ];
+      };
     };
 
     users.users.nginx.extraGroups = [ "acme" ];
