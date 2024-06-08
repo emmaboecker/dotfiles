@@ -1,5 +1,11 @@
 {config, ...}: {
-  users.users.promtail.extraGroups = ["nginx"];
+  users.groups.promtail = {};
+
+  users.users.promtail = {
+    group = "promtail";
+    extraGroups = ["nginx"];
+    isSystemUser = true;
+  };
 
   services.promtail = {
     enable = true;

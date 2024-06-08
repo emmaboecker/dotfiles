@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  image = "ghcr.io/goauthentik/server:2023.10.4";
+  image = "ghcr.io/goauthentik/server:2024.4.2";
 
   mkEnvironemt = {
     AUTHENTIK_POSTGRESQL__HOST = "/run/postgresql";
@@ -31,6 +31,10 @@ in {
   users.groups.authentik = {
     gid = 982;
   };
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/authentik/media/ 0770 authentik authentik -"
+  ];
 
   age.secrets.authentik-secrets = {
     file = "${self}/secrets/authentik-secrets.age";
@@ -62,6 +66,7 @@ in {
 
       volumes = [
         "/run/postgresql:/run/postgresql:ro"
+        "/var/lib/authentik/media/:/media/"
       ];
 
       extraOptions = [
@@ -84,6 +89,7 @@ in {
 
       volumes = [
         "/run/postgresql:/run/postgresql:ro"
+        "/var/lib/authentik/media/:/media/"
       ];
 
       extraOptions = [

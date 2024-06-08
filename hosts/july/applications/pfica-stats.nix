@@ -12,6 +12,7 @@
   age.secrets.pfica-stats-secrets.file = "${self}/secrets/pfica-stats-secrets.age";
 
   systemd.services.pfica-stats = {
+    enable = false;
     description = "PfiCa Stats";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
