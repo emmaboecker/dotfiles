@@ -16,6 +16,7 @@
       MEMORY="5G";
       ALLOW_FLIGHT="TRUE";
       MODRINTH_MODPACK="adrenaserver";
+      DIFFICULTY = "hard";
     };
 
     volumes = [
