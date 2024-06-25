@@ -10,6 +10,7 @@
 
     ./nextcloud.nix
     ./railboard-api.nix
+    ./rmbg-server.nix
 
     ./static.nix
     ./emmalink.nix

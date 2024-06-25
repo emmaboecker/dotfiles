@@ -45,6 +45,9 @@
       url = "github:emmaboecker/pfica-stats";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rmbg-server = {
+      url = "github:emmaboecker/rmbg-server";
+    };
   };
 
   outputs = {
