@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  image = "ghcr.io/goauthentik/server:2024.4.2";
+  image = "ghcr.io/goauthentik/server:2024.6.1";
 
   mkEnvironemt = {
     AUTHENTIK_POSTGRESQL__HOST = "/run/postgresql";
