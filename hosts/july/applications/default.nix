@@ -5,6 +5,7 @@
     ./monitoring
     ./matrix.nix
     ./reverse-proxy.nix
+    ./immich
 
     ./authentik.nix
 
