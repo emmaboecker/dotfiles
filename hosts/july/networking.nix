@@ -53,28 +53,28 @@
         useDHCP = false;
         ipv6.addresses = [
           {
-            address = "2a03:4000:47:251::";
+            address = "2a0a:4cc0:80:3a0::";
             prefixLength = 64;
           }
           {
-            address = "2a03:4000:47:251:e44a:b0ec:ce75:b00b";
+            address = "2a0a:4cc0:80:3a0:e44a:b0ec:ce75:b00b";
             prefixLength = 128;
           }
           {
-            address = "2a03:4000:47:251:626f:6563:6b65:723b";
+            address = "2a0a:4cc0:80:3a0:626f:6563:6b65:723b";
             prefixLength = 128;
           }
         ];
         ipv4.addresses = [
           {
-            address = "45.129.180.33";
+            address = "152.53.65.128";
             prefixLength = 22;
           }
         ];
       };
     };
     defaultGateway = {
-      address = "45.129.180.1";
+      address = "152.53.64.1";
       interface = "ens3";
     };
     defaultGateway6 = {

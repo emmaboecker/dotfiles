@@ -12,6 +12,10 @@
   };
 
   services.nginx.virtualHosts."rmbg.boecker.dev" = {
+    extraConfig = ''
+      client_max_body_size 50M;
+    '';
+
     locations."/" = {
       proxyPass = "http://localhost:4221";
       proxyWebsockets = true;

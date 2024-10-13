@@ -96,7 +96,7 @@
     };
     deploy.sshOpts = ["-t"];
     deploy.nodes.july = {
-      hostname = "45.129.180.33";
+      hostname = "152.53.65.128";
       sshUser = "emma";
 
       # required for sudo pw to work
