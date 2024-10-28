@@ -71,9 +71,9 @@
     security.acme = {
       acceptTerms = true;
       defaults = {
-        email = "stckoverflw@gmail.com";
+        email = "ejm";
         dnsProvider = "cloudflare";
-        dnsPropagationCheck = true;
+        dnsPropagationCheck = false;
         credentialsFile = config.age.secrets.cloudflare-api-key.path;
         # server = "https://acme-staging-v02.api.letsencrypt.org/directory";
       };
@@ -91,6 +91,8 @@
         ];
       };
     };
+
+    systemd.services."acme-boecker.dev-start".wants = [ "bind.service" "dnsmasq.service" ];
 
     users.users.nginx.extraGroups = [ "acme" ];
     age.secrets.cloudflare-api-key.file = "${self}/secrets/cloudflare-api-key.age";
