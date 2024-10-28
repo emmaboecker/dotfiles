@@ -71,7 +71,7 @@
     security.acme = {
       acceptTerms = true;
       defaults = {
-        email = "ejm";
+        email = "emma@boecker.dev";
         dnsProvider = "cloudflare";
         dnsPropagationCheck = false;
         credentialsFile = config.age.secrets.cloudflare-api-key.path;

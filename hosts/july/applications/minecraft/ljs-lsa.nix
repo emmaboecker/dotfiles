@@ -13,7 +13,7 @@
       VIEW_DISTANCE="14";
       SIMULATION_DISTANCE="5";
       DISABLE_HEALTHCHECK = "true";
-      MEMORY="5G";
+      MEMORY="4G";
       ALLOW_FLIGHT="TRUE";
       MODRINTH_MODPACK="adrenaserver";
       DIFFICULTY = "hard";
