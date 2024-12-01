@@ -7,7 +7,7 @@
       TYPE="FABRIC";
       VERSION="1.21.3";
       SERVER_PORT = "25565";
-      RCON_PORT = "25721";
+      RCON_PORT = "25723";
       MOTD = "uwu";
       SPAWN_PROTECTION="0";
       VIEW_DISTANCE="16";
@@ -17,7 +17,12 @@
       ALLOW_FLIGHT="TRUE";
       MODRINTH_MODPACK="adrenaline";
       MODRINTH_PROJECTS="simple-voice-chat";
-      DIFFICULTY = "hard";
+      DIFFICULTY = "normal";
+      OPS = ''
+        emmabtw
+        uwumarie
+        etogbtw
+      '';
     };
 
     volumes = [
