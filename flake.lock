@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698274934,
-        "narHash": "sha256-NqYVNBGMkCVx+eS+4TXOODH6NzdbuWBqAk3qvlwKA+4=",
+        "lastModified": 1698275692,
+        "narHash": "sha256-rapnzp4Cng3ariILhkWf2R6zXOSp5Dv6l6L/nOPyqzk=",
         "owner": "StckOverflw",
         "repo": "aufbaubot",
-        "rev": "43cada961794ad712fee620a782ae3d4df9aae38",
+        "rev": "135becbfb3df09d801e472e1af29aafce66c95cb",
         "type": "github"
       },
       "original": {
@@ -515,11 +515,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1689947155,
-        "narHash": "sha256-DVzgnzsNRva4HSiU1/tg6Gyw/GGZqHSKvBh2IQZNacU=",
+        "lastModified": 1733074877,
+        "narHash": "sha256-8CzwSIK6YzxTLwHXnuM4owUSu5yVNeGfA8LJ8biBpIw=",
         "owner": "StckOverflw",
         "repo": "iws-rs",
-        "rev": "8f449ff5d82fbbbca927c432c4e1f3febe4c8599",
+        "rev": "c27ba37046e7a862efcfa25cf68a02c590ea4ef7",
         "type": "github"
       },
       "original": {

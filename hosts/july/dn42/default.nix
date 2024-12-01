@@ -69,27 +69,27 @@
         ];
 
       };
-      dn42n1 = { # g-load.eu
-        listenPort = 51822;
-        allowedIPsAsRoutes = false;
-        privateKeyFile = config.age.secrets.dn42-peer2.path; # ED5B6y2f7Cml6dGspHVzXX2WiZbDOLiUvF93Op3Smlo=
+      # dn42n1 = { # g-load.eu
+      #   listenPort = 51822;
+      #   allowedIPsAsRoutes = false;
+      #   privateKeyFile = config.age.secrets.dn42-peer2.path; # ED5B6y2f7Cml6dGspHVzXX2WiZbDOLiUvF93Op3Smlo=
 
-        ips = [
-          "fe80::b77a:3f66:db51:41ff/64"
-        ];
+      #   ips = [
+      #     "fe80::b77a:3f66:db51:41ff/64"
+      #   ];
 
-        peers = [
-          {
-            publicKey = "B1xSG/XTJRLd+GrWDsB06BqnIq8Xud93YVh/LYYYtUY=";
-            allowedIPs = [ "0.0.0.0/0" "::/0" ];
-            endpoint = "de2.g-load.eu:23161";
-          }
-        ];
+      #   peers = [
+      #     {
+      #       publicKey = "B1xSG/XTJRLd+GrWDsB06BqnIq8Xud93YVh/LYYYtUY=";
+      #       allowedIPs = [ "0.0.0.0/0" "::/0" ];
+      #       endpoint = "de2.g-load.eu:23161";
+      #     }
+      #   ];
 
-        postSetup = ''
-            ${pkgs.iproute}/bin/ip addr add 192.168.221.170/32 peer 172.20.53.97/32 dev dn42n1
-        '';
-      };
+      #   postSetup = ''
+      #       ${pkgs.iproute2}/bin/ip addr add 192.168.221.170/32 peer 172.20.53.97/32 dev dn42n1
+      #   '';
+      # };
     };
   };
 

@@ -61,7 +61,6 @@
           '"pipe": "$pipe", ' # "p" if request was pipelined, "." otherwise
           '"gzip_ratio": "$gzip_ratio", '
           '"http_cf_ray": "$http_cf_ray",'
-          '"geoip_country_code": "$geoip_country_code"'
         '}';
 
         access_log /var/log/nginx/json_access.log json_analytics;

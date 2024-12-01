@@ -97,9 +97,7 @@
     url = "http://127.0.0.1:3003";
   };
   map = {
-    darkStyle = "";
     enabled = true;
-    lightStyle = "";
   };
   newVersionCheck = {
     enabled = true;

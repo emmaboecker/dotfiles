@@ -126,25 +126,25 @@
           }
         ];
       };
-      wg1 = {
-        allowedIPsAsRoutes = false;
-        privateKeyFile = config.age.secrets.fritz-private.path;
+      # wg1 = {
+      #   allowedIPsAsRoutes = false;
+      #   privateKeyFile = config.age.secrets.fritz-private.path;
 
-        ips = [
-          "192.168.178.201/24"
-        ];
+      #   ips = [
+      #     "192.168.178.201/24"
+      #   ];
 
-        peers = [
-          { # home fritzbox
-            name = "fritz-home";
-            publicKey = "1DmvSMbkh+qiivD5mdQShKrfFV6mzJIWemJmTq7f6RM=";
-            presharedKey = "+z2Ditg3KrDejJ7g5nR/K+n63/op3aTbp/W5M/CKULw=";
-            allowedIPs = [ "192.168.178.0/24" ];
-            endpoint = "asj4ixwav1fgmbmj.myfritz.net:50021";
-            persistentKeepalive = 25;
-          }
-        ];
-      };
+      #   peers = [
+      #     { # home fritzbox
+      #       name = "fritz-home";
+      #       publicKey = "1DmvSMbkh+qiivD5mdQShKrfFV6mzJIWemJmTq7f6RM=";
+      #       presharedKey = "+z2Ditg3KrDejJ7g5nR/K+n63/op3aTbp/W5M/CKULw=";
+      #       allowedIPs = [ "192.168.178.0/24" ];
+      #       endpoint = "asj4ixwav1fgmbmj.myfritz.net:50021";
+      #       persistentKeepalive = 25;
+      #     }
+      #   ];
+      # };
     };
   };
 

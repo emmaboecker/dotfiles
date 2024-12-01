@@ -29,7 +29,7 @@ in
       name = "immich";
       ensureDBOwnership = true;
     }];
-    extraPlugins = p: with p; [ pgvecto-rs ];
+    extensions = p: with p; [ pgvecto-rs ];
     settings = {
       shared_preload_libraries = "vectors";
     };
@@ -94,7 +94,7 @@ in
   };
   virtualisation.oci-containers.containers = {
     immich-server = makeImmichContainer { };
-    immich-machine-learning = makeImmichContainer {
+    immich-machine-learning = makeImmichContainer { 
       image = "ghcr.io/immich-app/immich-machine-learning:v1.121.0";
       volumes = [
         "/var/cache/immich:/cache"
@@ -113,7 +113,7 @@ in
   users.groups.immich = {
     gid = 1020473861;
   };
-  users.groups.immich-data = { };
+  users.groups.immich-data = { }; 
 
   services.nginx.virtualHosts."immich.boecker.dev" = {
     locations."/" = {
