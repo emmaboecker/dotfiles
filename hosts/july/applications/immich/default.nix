@@ -5,7 +5,7 @@ let
   configFile = toString (yaml.generate "config.yml" (import ./settings.nix));
   makeImmichContainer =
     args : lib.recursiveUpdate {
-      image = "ghcr.io/immich-app/immich-server:v1.123.0";
+      image = "ghcr.io/immich-app/immich-server:v1.124.2";
       volumes = [
         "/var/lib/immich:/usr/src/app/upload"
         "/run/postgresql:/run/postgresql"
@@ -95,7 +95,7 @@ in
   virtualisation.oci-containers.containers = {
     immich-server = makeImmichContainer { };
     immich-machine-learning = makeImmichContainer { 
-      image = "ghcr.io/immich-app/immich-machine-learning:v1.123.0";
+      image = "ghcr.io/immich-app/immich-machine-learning:v1.124.2";
       volumes = [
         "/var/cache/immich:/cache"
       ];
