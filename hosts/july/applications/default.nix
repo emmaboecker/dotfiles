@@ -15,15 +15,12 @@
 
     ./static.nix
     ./emmalink.nix
-    ./pfica-stats.nix
 
     ./minecraft
-    ./fivem.nix
     ./teamspeak.nix
 
     ./home-assistant.nix
 
     ./bak-kk
-    # ./mail.nix
   ];
 }

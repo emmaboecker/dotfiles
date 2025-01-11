@@ -747,11 +747,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1732981179,
-        "narHash": "sha256-F7thesZPvAMSwjRu0K8uFshTk3ZZSNAsXTIFvXBT+34=",
+        "lastModified": 1736200483,
+        "narHash": "sha256-JO+lFN2HsCwSLMUWXHeOad6QUxOuwe9UOAF/iSl1J4I=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "62c435d93bf046a5396f3016472e8f7c8e2aed65",
+        "rev": "3f0a8ac25fb674611b98089ca3a5dd6480175751",
         "type": "github"
       },
       "original": {
@@ -825,11 +825,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707171713,
-        "narHash": "sha256-VM63xul8Vv7hzwxAFfs1caO3CtPTMpxddYlRWWn+rDQ=",
+        "lastModified": 1736556463,
+        "narHash": "sha256-P9/A5xqVvx9imrhnV5/9qIES4UBc0j97nPFeErCcTpg=",
         "owner": "StckOverflw",
         "repo": "railboard-api",
-        "rev": "9a91a64024542adc24ad2ec7214b3ad0a476535f",
+        "rev": "e2e4675391f7a0356ea45c20f653f2201deac07c",
         "type": "github"
       },
       "original": {

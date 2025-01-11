@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./links.nix
-    ./sbg-redirect.nix
+#    ./links.nix
+#    ./sbg-redirect.nix
   ];
 }

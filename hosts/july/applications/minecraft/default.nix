@@ -5,8 +5,9 @@
     ];
 
   imports = [
-    ./bak-kk.nix
-    ./ljs-lsa.nix
-    ./uwu.nix
+    # ./bak-kk.nix
+    # ./ljs-lsa.nix
+    # ./uwu.nix
+    ./ljs.nix
   ];
 }

@@ -3,6 +3,7 @@
   lib,
   disko,
   nixpkgs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -10,6 +11,12 @@
     "${modulesPath}/profiles/headless.nix"
     disko.nixosModules.default
     ./hosts/july
+  ];
+
+  environment.systemPackages = with pkgs; [
+    git
+    htop
+    dig
   ];
 
   boot.loader.grub.devices = ["/dev/vda"];

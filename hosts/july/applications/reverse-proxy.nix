@@ -83,12 +83,6 @@
           "*.rail.boecker.dev"
         ];
       };
-      certs."bak.red" = {
-        domain = "*.bak.red";
-        extraDomainNames = [
-          "bak.red"
-        ];
-      };
     };
 
     systemd.services."acme-boecker.dev-start".wants = [ "bind.service" "dnsmasq.service" ];
