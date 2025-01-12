@@ -18,6 +18,10 @@
     return 200 '${builtins.toJSON data}';
   '';
 in {
+  imports = [
+    "${self.inputs.nixpkgs-unstable}/nixos/modules/services/matrix/conduwuit.nix"
+  ];
+
   services.nginx.virtualHosts = {
     "${serverName}" = {
       locations."/" = {
@@ -49,14 +53,16 @@ in {
     };
   };
 
-  services.matrix-conduit = {
+  services.conduwuit = {
     enable = true;
 
-    package = self.inputs.conduit.packages.${pkgs.system}.default;
+    package = self.inputs.conduwuit.packages.x86_64-linux.default;
 
     settings.global = {
       server_name = serverName;
-      port = 6167;
+      port = [
+        6167
+      ];
       max_request_size = 50000000;
       database_backend = "rocksdb";
       allow_registration = false;

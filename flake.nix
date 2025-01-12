@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,9 +34,8 @@
       url = "github:StckOverflw/aufbaubot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    conduit = {
-      url = "gitlab:famedly/conduit/next";
-      # inputs.nixpkgs.follows = "nixpkgs";
+    conduwuit = {
+      url = "github:girlbossceo/conduwuit/main";
     };
     emmalink = {
       url = "github:emmaboecker/emmalink";
