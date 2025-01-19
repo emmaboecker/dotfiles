@@ -148,6 +148,22 @@
     };
   };
 
+  age.secrets.tailscale-auth-key = {
+    file = "${self}/secrets/tailscale/tailscale-auth-key.age";
+  };
+
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    authKeyFile = config.age.secrets.tailscale-auth-key.path;
+    extraSetFlags = [
+      "--advertise-exit-node"
+      "--advertise-routes=172.20.0.0/14,fd00::/8"
+    ];
+    useRoutingFeatures = "server";
+  };
+
   age.secrets.river-private.file = "${self}/secrets/wireguard/river-private.age";
   age.secrets.fritz-private.file = "${self}/secrets/wireguard/fritz-private.age";
     

@@ -30,10 +30,6 @@
       url = "github:StckOverflw/railboard-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    aufbaubot = {
-      url = "github:StckOverflw/aufbaubot";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     conduwuit = {
       url = "github:girlbossceo/conduwuit/main";
     };
@@ -111,7 +107,7 @@
     };
     checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     devShells.x86_64-linux.default = pkgs.mkShell {
-      buildInputs = [agenix.packages.x86_64-linux.default deploy-rs.packages.x86_64-linux.default];
+      buildInputs = [agenix.packages.x86_64-linux.default];
     };
     formatter.x86_64-linux = pkgs.alejandra;
   };

@@ -16,9 +16,6 @@ in {
   "secrets/iws-rs.age".publicKeys = allKeys;
   "secrets/mongo-root.age".publicKeys = allKeys;
 
-  "secrets/aufbaubot-deletions.age".publicKeys = allKeys;
-  "secrets/aufbaubot-env.age".publicKeys = allKeys;
-
   "secrets/ris-tokens.age".publicKeys = allKeys;
 
   "secrets/matrix-secret.age".publicKeys = allKeys;
@@ -34,8 +31,6 @@ in {
   "secrets/emmalink-test-password.age".publicKeys = allKeys;
   "secrets/emmalink-secrets.age".publicKeys = allKeys;
 
-  "secrets/pfica-stats-secrets.age".publicKeys = allKeys;
-
   "secrets/etog-modpack-secrets.age".publicKeys = allKeys;
 
   "secrets/wireguard/river-private.age".publicKeys = allKeys;
@@ -43,7 +38,9 @@ in {
   "secrets/wireguard/dn42/peer1-private.age".publicKeys = allKeys;
   "secrets/wireguard/dn42/peer2-private.age".publicKeys = allKeys;
 
-  "secrets/mail/emma-boecker-dev-password.age".publicKeys = allKeys;
+  "secrets/tailscale/tailscale-auth-key.age".publicKeys = allKeys;
 
+  "secrets/paperless-env.age".publicKeys = allKeys;
+  
   "secrets/bak-kk/links-secrets.age".publicKeys = allKeys;
 }

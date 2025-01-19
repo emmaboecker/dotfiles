@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }: {
+{ self, config, pkgs, lib, ... }: {
   imports = [
     ./bird2.nix
     ./dns/bind.nix
@@ -19,7 +19,8 @@
         51822
       ];
       
-      checkReversePath = false;
+      
+      checkReversePath = lib.mkDefault false;
       interfaces."dn42n*" = {
         allowedTCPPorts = [ 179 53 ];
         allowedUDPPorts = [ 53 ];

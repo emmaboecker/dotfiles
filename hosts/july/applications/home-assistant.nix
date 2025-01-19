@@ -20,15 +20,14 @@
     config = null;
   };
 
+  services.nginx.tailscaleAuth = {
+    enable = true;
+    virtualHosts = ["hass.boecker.dev"];
+  };
   services.nginx.virtualHosts."hass.boecker.dev" = {
     locations."/" = {
       proxyPass = "http://localhost:8123";
       proxyWebsockets = true;
-      extraConfig = ''
-        allow 127.0.0.0/24;
-        allow 10.161.0.0/24;
-        deny all;
-      '';
     };
   };
 }

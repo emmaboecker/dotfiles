@@ -20,6 +20,7 @@
     ./teamspeak.nix
 
     ./home-assistant.nix
+    ./paperless.nix
 
     ./bak-kk
   ];
