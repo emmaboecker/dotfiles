@@ -5,13 +5,13 @@ let
   configFile = toString (yaml.generate "config.yml" (import ./settings.nix));
   makeImmichContainer =
     args : lib.recursiveUpdate {
-      image = "ghcr.io/immich-app/immich-server:v1.125.1";
+      image = "ghcr.io/immich-app/immich-server:v1.125.2";
       volumes = [
         "/var/lib/immich:/usr/src/app/upload"
         "/run/postgresql:/run/postgresql"
         "${config.services.redis.servers.immich.unixSocket}:${config.services.redis.servers.immich.unixSocket}"
         "${configFile}:/config.yaml"
-      ];
+      ]; 
       user = "52089350:52089350";
       extraOptions = [ "--network=host" ];
       environment = {
@@ -95,7 +95,7 @@ in
   virtualisation.oci-containers.containers = {
     immich-server = makeImmichContainer { };
     immich-machine-learning = makeImmichContainer { 
-      image = "ghcr.io/immich-app/immich-machine-learning:v1.125.1";
+      image = "ghcr.io/immich-app/immich-machine-learning:v1.125.2";
       volumes = [
         "/var/cache/immich:/cache"
       ];
