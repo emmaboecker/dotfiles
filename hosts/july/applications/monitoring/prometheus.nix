@@ -24,14 +24,6 @@
           }
         ];
       }
-      {
-        job_name = "minecraft";
-        static_configs = [
-          {
-            targets = ["localhost:9100"];
-          }
-        ];
-      }
     ];
   };
 }
