@@ -24,7 +24,7 @@
         https://github.com/Cubxity/UnifiedMetrics/releases/download/v0.3.x-SNAPSHOT/unifiedmetrics-platform-bukkit-0.3.10-SNAPSHOT.jar
         https://cloud.boecker.dev/s/CqNjbdqjgnLy5nK/download/CoreProtect-22.4.jar
       '';
-      MODRINTH_PROJECTS = "chunky,bluemap";
+      MODRINTH_PROJECTS = "chunky,bluemap,luckperms";
       RCON_CMDS_FIRST_CONNECT = ''
         chunky pause world
         chunky pause world_nether
