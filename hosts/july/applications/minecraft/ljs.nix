@@ -25,16 +25,6 @@
         https://cloud.boecker.dev/s/CqNjbdqjgnLy5nK/download/CoreProtect-22.4.jar
       '';
       MODRINTH_PROJECTS = "chunky,bluemap,luckperms";
-      RCON_CMDS_FIRST_CONNECT = ''
-        chunky pause world
-        chunky pause world_nether
-        chunky pause world_the_end
-      '';
-      RCON_CMDS_LAST_DISCONNECT = ''
-        chunky continue world
-        chunky continue world_nether
-        chunky continue world_the_end
-      '';
     };
 
     volumes = [
