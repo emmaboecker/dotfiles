@@ -44,5 +44,21 @@
     ];
   };
 
+  nix.optimise.automatic = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
+  swapDevices = [ {
+    device = "/var/lib/swapfile";
+    size = 16*1024;
+  } ];
+
   programs.nix-ld.enable = true;
 }

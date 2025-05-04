@@ -26,6 +26,8 @@
 
     settings = {
       trusted_proxies = ["127.0.0.1"];
+      log_type = "file";
+      loglevel = 2;
     };
 
     config = {

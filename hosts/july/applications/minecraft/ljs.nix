@@ -9,7 +9,7 @@
     environment = {
       EULA="TRUE";
       TYPE="PAPER";
-      VERSION="1.21.4";
+      VERSION="1.21.5";
       SERVER_PORT = "25565";
       RCON_PORT = "25722";
       MOTD = "linksjugend-solid.de";
@@ -22,9 +22,8 @@
       PLUGINS=''
         https://github.com/TCPShield/RealIP/releases/download/2.8.1/TCPShield-2.8.1.jar
         https://github.com/Cubxity/UnifiedMetrics/releases/download/v0.3.x-SNAPSHOT/unifiedmetrics-platform-bukkit-0.3.10-SNAPSHOT.jar
-        https://cloud.boecker.dev/s/CqNjbdqjgnLy5nK/download/CoreProtect-22.4.jar
       '';
-      MODRINTH_PROJECTS = "chunky,bluemap,luckperms";
+      MODRINTH_PROJECTS = "chunky";
     };
 
     volumes = [
