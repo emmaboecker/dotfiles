@@ -64,7 +64,7 @@ in
 
   virtualisation.oci-containers.containers.gotenberg = {
     user = "gotenberg:gotenberg";
-    image = "docker.io/gotenberg/gotenberg:8.15.3";
+    image = "docker.io/gotenberg/gotenberg:8.21.1";
     ports = [
       "127.0.0.1:${gotenbergPort}:3000"
     ];
