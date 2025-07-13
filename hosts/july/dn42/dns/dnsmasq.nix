@@ -8,7 +8,7 @@
       #   "wg0"
       # ];
       except-interface= "lo";
-      listen-address = ["127.0.0.1" "fd42:e99e:1f58:53::127"];
+      listen-address = ["127.0.0.1" "fd42:e99e:1f58:53::127" "::1"];
 
       server = [
         "/dn42/172.20.0.53"
