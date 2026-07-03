@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     colmena = {
       url = "github:zhaofengli/colmena";
@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.0.0";
+      url = "github:nix-community/lanzaboote/v1.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-generators = {
@@ -97,6 +97,19 @@
         deployment = {
           targetUser = "emma";
           targetHost = "boecker.dev";
+          targetPort = 22;
+          buildOnTarget = true;
+        };
+        nix.registry.nixpkgs.flake = nixpkgs;
+      };
+      october = {
+        imports = [
+          ./hosts/october
+          agenix.nixosModules.default
+        ];
+        deployment = {
+          targetUser = "lou";
+          targetHost = "85.190.101.91";
           targetPort = 22;
           buildOnTarget = true;
         };
