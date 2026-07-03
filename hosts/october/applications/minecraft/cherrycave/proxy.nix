@@ -1,9 +1,7 @@
 { config, pkgs, ... }: {
   systemd.tmpfiles.rules = [
-    "d /var/lib/cherrycave/proxy 0755 cherrycave cherrycave"
-    "d /var/lib/cherrycave/proxy/server 0755 cherrycave cherrycave"
-    "d /var/lib/cherrycave/proxy/plugins 0755 cherrycave cherrycave"
-    "d /var/lib/cherrycave/proxy/config 0755 cherrycave cherrycave"
+    "d /var/lib/cherrycave/proxy 0775 cherrycave cherrycave"
+    "d /var/lib/cherrycave/proxy/server 0775 cherrycave cherrycave"
   ];
 
   networking.firewall.allowedTCPPorts = [

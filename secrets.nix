@@ -8,11 +8,13 @@ let
   systemKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII8+tB44MHGTih2DlHeNpnEYE2ah6/OS6lwcJQTGwrae root@nixos" # july
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJuh9PuiBBVeskbUDgsrt7J9VLCbIv94yA2DyNBA2Nqn" # june
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID70NYMyddPOhI7o8fdPFQunB0ZQemZ/iN9lz/TeWvRF" # october
   ];
 
   allKeys = userKeys ++ systemKeys;
 in {
   "secrets/cloudflare-api-key.age".publicKeys = allKeys;
+  "secrets/cloudflare-email.age".publicKeys = allKeys;
 
   "secrets/nextcloud-admin.age".publicKeys = allKeys;
 

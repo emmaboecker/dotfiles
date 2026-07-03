@@ -15,10 +15,14 @@
       group = "cherrycave";
     };
     groups.cherrycave = { };
-    users.emma.extraGroups = [ "cherrycave" ];
+    users.lou.extraGroups = [ "cherrycave" ];
   };
 
   age.secrets.velocity-forwarding-secret.file = "${self}/secrets/cherrycave/velocity-forwarding-secret.age";
 
   age.secrets.rabbitmq-env.file = "${self}/secrets/cherrycave/rabbitmq-env.age";
+  
+  systemd.tmpfiles.rules = [
+    "d /var/lib/cherrycave 0755 cherrycave cherrycave"
+  ];
 }

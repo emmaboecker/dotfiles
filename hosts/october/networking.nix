@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   networking = {
     hostName = "october";
 
@@ -13,6 +13,17 @@
     ];
 
     firewall.allowedUDPPorts = [];
+  };
+
+  networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    extraSetFlags = [
+      "--advertise-exit-node"
+      # "--advertise-routes=172.20.0.0/14,fd00::/8"
+    ];
+    useRoutingFeatures = "server";
   };
 
   systemd.network = {

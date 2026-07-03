@@ -1,6 +1,6 @@
 { ... }: {
     systemd.tmpfiles.rules = [
-    "d /var/lib/cherrycave/bingo 0755 cherrycave cherrycave"
+    "d /var/lib/cherrycave/bingo 0775 cherrycave cherrycave"
   ];
 
     virtualisation.oci-containers.containers.cc-bingo = {

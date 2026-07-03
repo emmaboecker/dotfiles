@@ -15,6 +15,7 @@
     ./hardware.nix
     ./networking.nix
     ./user.nix
+    ./applications
   ];
 
   boot.loader.grub.enable = true;
