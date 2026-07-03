@@ -12,5 +12,6 @@
     # ./ljs.nix
     # ./etog.nix
     ./tweakistan.nix
+    ./cherrycave
   ];
 }

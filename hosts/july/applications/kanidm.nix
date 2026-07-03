@@ -4,22 +4,22 @@ let
 in
 {
   services.kanidm = {
-    enableServer = true;
-
     package = pkgs.kanidm_1_10;
 
-    serverSettings = {
-      domain = "${idm_domain}";
-      origin = "https://${idm_domain}";
-      bindaddress = "[::]:8443";
-      trust_x_forward_for = true;
+    server = {
+      enable = true;
+      settings = {
+        domain = "${idm_domain}";
+        origin = "https://${idm_domain}";
+        bindaddress = "[::]:8443";
 
-      tls_chain = "/var/lib/acme/${idm_domain}/fullchain.pem";
-      tls_key = "/var/lib/acme/${idm_domain}/key.pem";
+        tls_chain = "/var/lib/acme/${idm_domain}/fullchain.pem";
+        tls_key = "/var/lib/acme/${idm_domain}/key.pem";
+      };
     };
 
-    enableClient = true;
-    clientSettings = {
+    client.enable = true;
+    client.settings = {
       uri = "https://${idm_domain}";
     };
   };
@@ -30,7 +30,7 @@ in
 
   services.nginx.virtualHosts."${idm_domain}" = {
     locations."/" = {
-      proxyPass = "https://${toString config.services.kanidm.serverSettings.bindaddress}";
+      proxyPass = "https://${toString config.services.kanidm.server.settings.bindaddress}";
       proxyWebsockets = true;
       extraConfig = ''
         proxy_ssl_verify on;

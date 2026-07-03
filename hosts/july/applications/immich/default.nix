@@ -3,10 +3,6 @@
 {
   services.immich = {
     enable = true;
-    database = {
-      enableVectors = true;
-      enableVectorChord = true;
-    };
     settings = null;
   };
 

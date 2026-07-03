@@ -16,10 +16,6 @@ in {
 
   "secrets/nextcloud-admin.age".publicKeys = allKeys;
 
-  "secrets/iws-token.age".publicKeys = allKeys;
-  "secrets/iws-rs.age".publicKeys = allKeys;
-  "secrets/mongo-root.age".publicKeys = allKeys;
-
   "secrets/ris-tokens.age".publicKeys = allKeys;
 
   # "secrets/matrix-secret.age".publicKeys = allKeys;
@@ -30,6 +26,7 @@ in {
   "secrets/authentik-secrets.age".publicKeys = allKeys;
 
   "secrets/grafana-oauth-secret.age".publicKeys = allKeys;
+  "secrets/grafana-secret-key.age".publicKeys = allKeys;
 
   "secrets/fivem-secrets.age".publicKeys = allKeys;
   
@@ -43,6 +40,8 @@ in {
   "secrets/wireguard/fritz-preshared-key.age".publicKeys = allKeys;
   "secrets/wireguard/dn42/peer1-private.age".publicKeys = allKeys;
   "secrets/wireguard/dn42/peer2-private.age".publicKeys = allKeys;
+
+  "secrets/fritzbox/fritz-password.age".publicKeys = allKeys;
 
   "secrets/tailscale/tailscale-auth-key.age".publicKeys = allKeys;
   "secrets/tailscale/june/tailscale-auth-key.age".publicKeys = allKeys;
@@ -62,4 +61,8 @@ in {
   "secrets/media/transmission.age".publicKeys = allKeys;
   "secrets/media/oauth2-proxy.age".publicKeys = allKeys;
   "secrets/media/tmdb-api-key.age".publicKeys = allKeys;
+
+  "secrets/cherrycave/luckperms-standalone-env.age".publicKeys = allKeys;
+  "secrets/cherrycave/velocity-forwarding-secret.age".publicKeys = allKeys;
+  "secrets/cherrycave/rabbitmq-env.age".publicKeys = allKeys;
 }

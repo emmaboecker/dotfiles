@@ -15,8 +15,6 @@
     ];
   };
 
-  systemd.services.podman-tweakistan.serviceConfig.Delegate = "yes";
-
   networking.firewall.allowedTCPPorts = [
     25566
   ];
@@ -42,7 +40,7 @@
       SIMULATION_DISTANCE="6";
       DISABLE_HEALTHCHECK = "true";
       ICON="https://static.boecker.dev/chicken_jockey.jpeg";
-      MEMORY="6G";
+      MEMORY="3G";
       # PLUGINS=''
       #   https://github.com/Cubxity/UnifiedMetrics/releases/download/v0.3.x-SNAPSHOT/unifiedmetrics-platform-bukkit-0.3.10-SNAPSHOT.jar
       #   https://static.boecker.dev/CoreProtect-23.0.jar
@@ -59,7 +57,6 @@
         fabric-api
         fabric-language-kotlin
         simple-voice-chat
-        bluemap
         spark
         chunky
         c2me-fabric
@@ -68,7 +65,6 @@
         no-chat-reports
         enhanced-groups
         journeymap
-        
       '';
       # viafabric
       # viaversion
@@ -101,18 +97,4 @@
       ];
     }
   ];
-
-  services.nginx.virtualHosts."tweakistan.boecker.dev" = {
-    locations."/" = {
-      proxyPass = "http://localhost:8101";
-      proxyWebsockets = true; 
-    };
-  };
-
-  services.nginx.virtualHosts."tweakistan.curllz.com" = {
-    locations."/" = {
-      proxyPass = "http://localhost:8101";
-      proxyWebsockets = true; 
-    };
-  };
 }

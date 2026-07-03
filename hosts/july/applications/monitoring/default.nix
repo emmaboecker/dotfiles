@@ -3,7 +3,7 @@
     ./grafana.nix
     ./prometheus.nix
     ./loki.nix
-    ./promtail.nix
+    # ./promtail.nix
     ./changedetection-io.nix
   ];
 }

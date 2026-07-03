@@ -9,6 +9,12 @@
     group = "grafana";
   };
 
+  age.secrets.grafana-secret-key = {
+    file = "${self}/secrets/grafana-secret-key.age";
+    owner = "grafana";
+    group = "grafana";
+  };
+
   services.postgresql = {
     ensureDatabases = ["grafana"];
     ensureUsers = [{
@@ -51,6 +57,7 @@
       security = {
         disable_initial_admin_creation = true;
         cookie_secure = true;
+        secret_key = "$__file{${config.age.secrets.grafana-secret-key.path}}";
       };
 
       server = {
@@ -60,6 +67,7 @@
         root_url = "https://grafana.boecker.dev";
       };
     };
+
     provision = {
       enable = true;
       datasources.settings.datasources = [

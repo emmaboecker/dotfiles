@@ -72,7 +72,9 @@
         email = "emma@boecker.dev";
         dnsProvider = "cloudflare";
         dnsPropagationCheck = true;
-        credentialsFile = config.age.secrets.cloudflare-api-key.path;
+        credentialFiles = {
+          "CLOUDFLARE_API_KEY_FILE" = config.age.secrets.cloudflare-api-key.path;
+        };
         # server = "https://acme-staging-v02.api.letsencrypt.org/directory";
       };
       certs."boecker.dev" = {

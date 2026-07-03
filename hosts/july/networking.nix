@@ -14,16 +14,6 @@
 
     nftables = {
       enable = true;
-      # tables.forwarding = {
-      #   family = "inet";
-      #   content = ''
-      #     chain forward {
-      #       type filter hook forward priority 0; policy drop;
-
-      #       ct state { established, related } accept
-      #     }
-      #   '';
-      # };
     };
     
     firewall.allowedTCPPorts = [
