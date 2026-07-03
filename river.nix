@@ -8,6 +8,7 @@
     ];
 
   boot.loader.systemd-boot.enable = false;
+  boot.loader.systemd-boot.configurationLimit = 2;
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";

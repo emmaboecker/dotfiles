@@ -6,6 +6,7 @@
     thunderbird
     jellyfin-desktop
     delfin
+    plezy
     vlc
 
     affinity-v3
