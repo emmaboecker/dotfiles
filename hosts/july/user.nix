@@ -10,6 +10,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPiBYp+pjF/3Q6deVfH4uMqYg6y9YbK29qZ6kNyWLxil" # laptop 
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFPKX4xLlDZtOytnnX8SKVcbHIK0P6E6WPXPVGdE3uMo" # termux 
     ];
+    useDefaultShell = true;
   };
 
   users.users.marie = {
@@ -17,6 +18,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiS+tzh0R/nN5nqSwvLerCV4nBwI51zOKahFfiiINGp"
     ];
+    useDefaultShell = true;
   };
 
   security.sudo.wheelNeedsPassword = false;

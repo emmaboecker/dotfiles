@@ -21,7 +21,7 @@
           {
             "slot": 12,
             "material": "minecraft:rabbit_spawn_egg",
-            "name":"<gradient:#eb4034:#ebcd34>Marathon</gradient>",
+            "name":"<gradient:#00ff33:#38ffcd>Marathon</gradient>",
             "description":"",
             "action":{
               "actionType":"send-request",

@@ -5,5 +5,6 @@
     packages = with pkgs; [
       tree
     ];
+    useDefaultShell = true;
   };
 }

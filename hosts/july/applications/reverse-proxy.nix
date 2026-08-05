@@ -66,14 +66,19 @@
       '';
     };
 
+    age.secrets.cloudflare-api-key.file = "${self}/secrets/cloudflare-api-key.age";
+    age.secrets.cloudflare-email.file = "${self}/secrets/cloudflare-email.age";
+
     security.acme = {
       acceptTerms = true;
       defaults = {
         email = "emma@boecker.dev";
         dnsProvider = "cloudflare";
         dnsPropagationCheck = true;
+        dnsResolver = "1.1.1.1:53";
         credentialFiles = {
-          "CLOUDFLARE_API_KEY_FILE" = config.age.secrets.cloudflare-api-key.path;
+          "CLOUDFLARE_EMAIL_FILE" = config.age.secrets.cloudflare-email.path;
+          "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.age.secrets.cloudflare-api-key.path;
         };
         # server = "https://acme-staging-v02.api.letsencrypt.org/directory";
       };
@@ -87,6 +92,5 @@
     };
 
     users.users.nginx.extraGroups = [ "acme" ];
-    age.secrets.cloudflare-api-key.file = "${self}/secrets/cloudflare-api-key.age";
   };
 }

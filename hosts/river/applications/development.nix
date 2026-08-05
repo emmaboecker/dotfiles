@@ -5,7 +5,7 @@
     git
     jujutsu
     nixfmt
-    jdk25_headless
+    jdk25
     mitmproxy
 
     bruno

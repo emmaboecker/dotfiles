@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, maccel, ...}: {
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
@@ -11,7 +11,17 @@
 
   environment.systemPackages = with pkgs; [
     heroic
-    prismlauncher
+    (pkgs.prismlauncher.override {
+      additionalLibs = with pkgs; [ 
+        libxkbcommon
+        libX11
+        libXtst
+        libXext
+      ];
+    })
+    waywall
     lunar-client
   ];
+
+  users.groups.maccel.members = ["lou"];
 }

@@ -1,11 +1,4 @@
 { pkgs, ...}: {
-  users.defaultUserShell = pkgs.fish;
-  users.users.lou.useDefaultShell = true;
-  programs.fish = {
-    enable = true;
-    useBabelfish = true;
-  };
-
   services.ringboard.wayland.enable = true;
 
   services.hardware.openrgb.enable = true;
@@ -27,6 +20,9 @@
     net-tools
     mtr
     openrgb
+    pixelorama
+
+    openconnect
   ] ++ (with pkgs.kdePackages; [
       isoimagewriter
       gwenview
@@ -38,4 +34,20 @@
   programs.kdeconnect.enable = true;
 
   services.flatpak.enable = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libxkbcommon
+      libxtst
+      libx11
+      libxext
+      libxi
+      libxt
+      
+      wayland
+      libglvnd
+      glfw3-minecraft
+    ];
+  };  
 }

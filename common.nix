@@ -11,6 +11,12 @@
     btop
   ];
 
+  users.defaultUserShell = pkgs.fish;
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
+
   nix.optimise.automatic = true;
   nix.gc = {
     automatic = true;

@@ -6,6 +6,7 @@
      ./lobby.nix
      ./marathon.nix
      ./bingo.nix
+     ./paper-test.nix
    ];
 
   users = {

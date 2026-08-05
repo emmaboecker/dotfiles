@@ -41,7 +41,14 @@
       url = "github:ngosang/trackerslist";
       flake = false;
     };
+    bingo-rp-gen = {
+      url = "github:cherrycave/bingo-rp-gen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     affinity-nix.url = "github:mrshmllow/affinity-nix";
+    maccel = {
+      url = "github:Gnarus-G/maccel";
+    };
   };
 
   outputs = {
@@ -131,7 +138,7 @@
       river = {
         imports = [ 
           lanzaboote.nixosModules.lanzaboote
-          ./river.nix 
+          ./hosts/river
         ];
         nix.registry.nixpkgs.flake = nixpkgs-unstable;
         deployment = {

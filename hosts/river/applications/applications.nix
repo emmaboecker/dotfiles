@@ -44,6 +44,7 @@
       obs-pipewire-audio-capture
       obs-vkcapture
       obs-tuna
+      obs-wayland-hotkeys
     ];
   };
 }
