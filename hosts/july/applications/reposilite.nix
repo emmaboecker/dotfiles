@@ -2,11 +2,6 @@
   services.reposilite = {
     enable = true;
 
-    extraArgs = [
-      "--token"
-      "lou:WSFddffahtf8CLtsJv9NoV8bEpbdwGkS"
-    ];
-
     settings = {
       port = 3213;
     };

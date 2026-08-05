@@ -9,6 +9,7 @@
     ./media
 
     ./kanidm.nix
+    ./vaultwarden.nix
     
     ./files
     ./railboard-api.nix

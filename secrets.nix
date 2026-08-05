@@ -67,4 +67,7 @@ in {
   "secrets/cherrycave/luckperms-standalone-env.age".publicKeys = allKeys;
   "secrets/cherrycave/velocity-forwarding-secret.age".publicKeys = allKeys;
   "secrets/cherrycave/rabbitmq-env.age".publicKeys = allKeys;
+
+  "secrets/vaultwarden-secrets.age".publicKeys = allKeys;
+  "secrets/vaultwarden-backup-password.age".publicKeys = allKeys;
 }
