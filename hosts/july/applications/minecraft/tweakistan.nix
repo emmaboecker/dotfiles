@@ -57,6 +57,7 @@
         enhanced-groups
         journeymap
         bluemap
+        no-enderman-grief
       '';
       MODRINTH_ALLOWED_VERSION_TYPE="alpha";
       UID="0";
