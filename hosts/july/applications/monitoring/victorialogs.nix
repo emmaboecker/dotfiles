@@ -1,3 +1,5 @@
 { ... }: {
-  
+  services.victorialogs = {
+    enable = true;
+  };
 }

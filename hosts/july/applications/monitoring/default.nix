@@ -1,9 +1,9 @@
 {...}: {
   imports = [
     ./grafana.nix
-    ./prometheus.nix
-    ./loki.nix
-    # ./promtail.nix
+    ./exporters.nix
+    ./victoriametrics.nix
+    ./victorialogs.nix
     ./changedetection-io.nix
   ];
 }

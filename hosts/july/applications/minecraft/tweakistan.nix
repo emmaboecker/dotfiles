@@ -74,7 +74,7 @@
     extraOptions = ["--network=host"];
   };
 
-  services.prometheus.scrapeConfigs = [
+  services.victoriametrics.prometheusConfig.scrape_configs = [
     {
       job_name = "tweakistan";
       static_configs = [

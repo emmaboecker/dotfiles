@@ -17,6 +17,7 @@
     ./user.nix
     ./storage.nix
     ./applications
+    ./monitoring
   ];
 
   boot.loader.grub.enable = true;

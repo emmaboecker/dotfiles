@@ -70,19 +70,20 @@
 
     provision = {
       enable = true;
+      datasources.settings.prune = true;
       datasources.settings.datasources = [
         {
-          name = "Prometheus july";
-          type = "prometheus";
+          name = "Victoriametrics july";
+          type = "victoriametrics-metrics-datasource";
           access = "proxy";
-          url = "http://127.0.0.1:${toString config.services.prometheus.port}";
+          url = "http://localhost:8428";
         }
-        # {
-        #   name = "Loki";
-        #   type = "loki";
-        #   access = "proxy";
-        #   url = "http://127.0.0.1:${toString config.services.loki.configuration.server.http_listen_port}";
-        # }
+        {
+          name = "Victorialogs july";
+          type = "victoriametrics-logs-datasource";
+          access = "proxy";
+          url = "http://localhost:9428";
+        }
       ];
     };
   };
