@@ -4,7 +4,7 @@ let
 in
 {
   services.kanidm = {
-    package = pkgs.kanidm_1_10;
+    package = pkgs.kanidm_1_11;
 
     server = {
       enable = true;
@@ -15,6 +15,7 @@ in
 
         tls_chain = "/var/lib/acme/${idm_domain}/fullchain.pem";
         tls_key = "/var/lib/acme/${idm_domain}/key.pem";
+        http_client_address_info.x-forward-for = [ "::1" ];
       };
     };
 
@@ -28,12 +29,15 @@ in
     group = "kanidm";
   };
 
+  users.users.nginx.extraGroups = [ "kanidm" ];
+
   services.nginx.virtualHosts."${idm_domain}" = {
     locations."/" = {
       proxyPass = "https://${toString config.services.kanidm.server.settings.bindaddress}";
       proxyWebsockets = true;
       extraConfig = ''
         proxy_ssl_verify on;
+        proxy_ssl_verify_depth 3;
         proxy_ssl_trusted_certificate /etc/ssl/certs/ca-certificates.crt;
         proxy_ssl_name ${idm_domain};
       '';
